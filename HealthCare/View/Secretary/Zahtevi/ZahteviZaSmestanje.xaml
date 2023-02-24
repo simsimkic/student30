@@ -1,0 +1,60 @@
+﻿<Window x:Class="Sekretar.Zahtevi.ZahteviZaSmestanje"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sekretar.Zahtevi"
+        mc:Ignorable="d"
+        xmlns:language="clr-namespace:Secretary.Properties.Langs"
+        ResizeMode="NoResize"
+        Style="{DynamicResource MyStyle}"
+        Title="{x:Static language:Lang.patientrequests}" Height="450" Width="800">
+    <Grid HorizontalAlignment="Right" Margin="0,0,-0.4,0" Width="794" Height="420" VerticalAlignment="Top">
+        <Button Style="{DynamicResource MyStyleButton}" FontSize="15" Click="ButtonClickPocetna" Margin="46,357,636.6,32" Content="{x:Static language:Lang.back}"/>
+        <DataGrid ItemsSource="{Binding zahtevi}" IsReadOnly="True" Background="White"
+            SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
+            Height="152" Margin="46,33,0,0" VerticalAlignment="Top" Width="691" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="{x:Static language:Lang.request}" Width="*" Binding="{Binding Note}"/>
+                <DataGridTemplateColumn Header="" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnView" Content="{x:Static language:Lang.moreInfo}" Click="ButtonClickDetaljnije" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnView" Content="{x:Static language:Lang.place}" Click="ButtonClickSmesti" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid ItemsSource="{Binding urgentSurgery}" IsReadOnly="True" Background="White"
+            SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
+            Height="154" Margin="46,185,0,0" VerticalAlignment="Top" Width="691" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Hitne operacije" Width="*" Binding="{Binding Note}"/>
+                <DataGridTemplateColumn Header="" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnView" Content="{x:Static language:Lang.moreInfo}" Click="ButtonClickDetaljnijeSurgery" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnView" Content="{x:Static language:Lang.place}" Click="ButtonClickSmestiSurgery" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+
+    </Grid>
+</Window>

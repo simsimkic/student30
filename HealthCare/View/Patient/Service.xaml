@@ -1,0 +1,20 @@
+﻿<Page x:Class="HealthCare.View.Patient.Service"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthCare"
+      mc:Ignorable="d" 
+      d:DesignHeight="1200" d:DesignWidth="1280"
+      Title="Service">
+
+    <Page.Resources>
+        <ResourceDictionary Source="/View/Patient/ThemeResourceDictionary.xaml"/>
+    </Page.Resources>
+    
+    <StackPanel Margin="300,50,300,100">
+        <Image Source="/Resources/homepagegallery5.jpg" Width="400"/>
+        <TextBlock FontSize="30" HorizontalAlignment="Center" Margin="0,20,0,0">Etiam posuere purus gravida mauris</TextBlock>
+        <TextBlock FontSize="16" TextWrapping="Wrap" Height="Auto" Margin="0,30,0,0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nibh leo, sollicitudin quis purus non, efficitur fringilla ex. Etiam posuere purus gravida mauris tincidunt, nec fermentum sapien tincidunt. Phasellus porta ultrices lobortis. Ut ultrices sodales nunc ut convallis. Proin ultricies pharetra dolor et hendrerit. Vestibulum viverra feugiat erat, at facilisis diam blandit a. Phasellus placerat dapibus suscipit. Nam vitae metus nec velit pharetra sagittis ac at lectus. Proin id dapibus est. Vivamus fringilla massa eu massa tincidunt, in aliquam neque vulputate. Nunc sit amet nunc id felis tincidunt varius. Vivamus congue eget sapien non consectetur. Praesent gravida libero id tristique convallis. Aliquam erat volutpat. Curabitur consectetur eget nisi et congue. Aliquam erat volutpat. Fusce nec dignissim sem. Integer finibus placerat odio, sed finibus ante pellentesque non. Duis quam tellus, tincidunt sit amet blandit sed, dictum sed felis. Mauris tristique diam arcu, in laoreet risus sodales nec. In posuere luctus ante. Fusce venenatis, nibh id cursus sagittis, libero magna blandit ligula, id bibendum erat odio non leo. In non fringilla nisl, nec interdum velit. Fusce ullamcorper mauris ac sapien sodales dapibus. Sed id sapien non sem ultrices dapibus eget vitae nunc. Aliquam auctor laoreet ultricies. Sed vestibulum tortor libero, et elementum erat porttitor ac. Aenean ante dolor, sodales ac lectus vel, porttitor rhoncus ex. Maecenas sit amet blandit ligula, id semper neque. Maecenas ut erat pharetra, posuere urna sit amet, condimentum augue. Phasellus elit orci, ultricies quis ex id, finibus varius felis. Nulla augue tortor, dapibus a libero a, egestas facilisis mi. Nulla porta aliquam elit non convallis. Morbi cursus, ante eget consectetur finibus, sapien metus convallis velit, sit amet aliquet lectus turpis vel nulla. Integer sollicitudin porta malesuada. Duis id accumsan magna. Duis a sem enim. Vestibulum vel efficitur risus. Duis semper libero id porta feugiat. Proin at lobortis mauris. Aliquam ut ipsum sit amet eros rutrum molestie. Phasellus id lobortis metus. Aliquam hendrerit sagittis risus sed facilisis. Vivamus non tincidunt neque. Suspendisse quis felis mattis, viverra lacus at, ullamcorper ipsum. Vestibulum quam ante, rutrum convallis velit fringilla, bibendum mattis orci. Suspendisse ut placerat erat. Cras non odio dignissim dui viverra tempor placerat maximus arcu. Quisque eu sem sollicitudin, porttitor tellus vitae, vulputate justo. Morbi tempor tempus nisi nec tempor. Quisque nisl erat, laoreet rutrum libero nec, viverra bibendum ligula. Quisque posuere metus urna, vitae auctor erat ornare suscipit. Quisque non dui in justo convallis volutpat. Nullam ullamcorper tortor eget nunc vestibulum vulputate. Phasellus sagittis felis vitae ex pellentesque placerat. Nulla tincidunt fermentum elit, pharetra dictum velit auctor at.</TextBlock>
+    </StackPanel>
+</Page>

@@ -1,0 +1,61 @@
+﻿<Window x:Class="HealthCareClinic.HCI.SoftwareRating"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:HealthCareClinic.View"
+        xmlns:my="clr-namespace:HCIProjekat.View"
+        xmlns:model="clr-namespace:Model.Communication"
+        mc:Ignorable="d"
+        Title="HealthCare Clinic" 
+        Height="Auto" Width="Auto"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation = "CenterScreen"
+        Icon="../../../View/Doctor/ViewResources/Images/hospitalicon.ico"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid Margin="10 15 10 15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Dizajn: " Margin="10,15,0,0" Padding="0" />
+        <ComboBox x:Name="cbDesign" ItemsSource="{Binding Source={my:EnumBindingSourceExtension {x:Type model:Grades}}}" IsTextSearchEnabled="True" Grid.Row="0" Grid.Column="1" Width="200" Margin="10 12 10 0" HorizontalAlignment="Right"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Funcionalnost: " Margin="10,15,0,0" Padding="0" />
+        <ComboBox x:Name="cbFuncionality" ItemsSource="{Binding Source={my:EnumBindingSourceExtension {x:Type model:Grades}}}" IsTextSearchEnabled="True" Grid.Row="1" Grid.Column="1" Width="200" Margin="10 12 10 0" HorizontalAlignment="Right"/>
+        
+        <Label Grid.Row="2" Grid.Column="0"  Content="Brzina koriscenja: " Margin="10,15,0,0" Padding="0" />
+        <ComboBox x:Name="cbSpeed" ItemsSource="{Binding Source={my:EnumBindingSourceExtension {x:Type model:Grades}}}" IsTextSearchEnabled="True" Grid.Row="2" Grid.Column="1" Width="200" Margin="10 12 10 0" HorizontalAlignment="Right"/>
+
+        <StackPanel Margin="10 0 10 5" Grid.Row="3" Grid.ColumnSpan="2" Orientation="Vertical">
+            <Label HorizontalAlignment="Left" Padding="0" Margin="0 10 0 5">Komentar:</Label>
+            <TextBox Name="tbNote" Height="100" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Visible"/>
+        </StackPanel>
+
+        <DockPanel Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Right">
+            <Button Margin="0 10 10 0" Style="{StaticResource buttonStyle }" VerticalAlignment="Center" Name="btnSendSoftwareRating" Click="btnSendSoftwareRating_Click">
+                <DockPanel>
+                    <materialDesign:PackIcon Kind="Grade" VerticalAlignment="Center"/>
+                    <ContentControl Focusable="False">Oceni</ContentControl>
+                </DockPanel>
+            </Button>
+        </DockPanel>
+    </Grid>
+</Window>

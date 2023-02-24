@@ -1,0 +1,33 @@
+﻿<Page x:Class="HealthCare.View.Patient.SuccessfullyMadeAppointment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      xmlns:local="clr-namespace:HealthCare.View.Patient"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SuccessfullyMadeAppointment">
+
+    <Page.Resources>
+        <ResourceDictionary Source="/View/Patient/ThemeResourceDictionary.xaml"/>
+    </Page.Resources>
+
+    <StackPanel x:Name="content" Orientation="Vertical" Margin="100,50,100,0" MinHeight="520">
+        <TextBlock FontSize="24" Margin="0,0,0,30">Uspešno ste zakazali pregled</TextBlock>
+        <Button x:Name="HomeButton" Style="{StaticResource WindowButton}" Click="Button_Click" HorizontalAlignment="Left" Height="100" Width="100">
+            <fa:ImageAwesome Style="{StaticResource WindowIcon}" Icon="Home"/>
+        </Button>
+        <TextBlock FontSize="16" Text="Vratite se na početnu stranu">
+            <TextBlock.Style>
+                <Style TargetType="TextBlock">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=HomeButton, Path=IsMouseOver}" Value="true">
+                            <Setter Property="Foreground" Value="{StaticResource ThemeBrush}"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+    </StackPanel>
+</Page>

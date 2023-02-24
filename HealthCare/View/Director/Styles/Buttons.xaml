@@ -1,0 +1,189 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:HCIProjekat.View.Styles"
+                    xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="Colors.xaml"/>
+        </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="Button">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Background="{TemplateBinding Background}">
+                        <ContentPresenter />
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CustomButtonLarge" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border CornerRadius="10" BorderThickness="1" BorderBrush="{StaticResource svetloPlava}">
+                        <Grid Width="390"  Margin="5">
+                            <materialDesign:PackIcon Kind="{Binding Tag, RelativeSource={RelativeSource AncestorType=Button}}" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{StaticResource svetloPlava}" Width="30" Height="30"/>
+                            <TextBlock Text="{Binding Content, RelativeSource={RelativeSource AncestorType=Button}}" HorizontalAlignment="Left"  FontSize="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}" Foreground="{StaticResource svetloPlava}" Margin="40 0 0 0" VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon Kind="ChevronRight" HorizontalAlignment="Right" VerticalAlignment="Center"  Foreground="{StaticResource svetloPlava}" Margin="0 0 20 0" Width="30" Height="30"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="CustomButtonLargeDelete" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border CornerRadius="10" BorderThickness="1" BorderBrush="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}">
+                        <Grid Width="390"  Margin="5">
+                            <materialDesign:PackIcon Kind="{Binding Tag, RelativeSource={RelativeSource AncestorType=Button}}" VerticalAlignment="Center" HorizontalAlignment="Left" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Width="30" Height="30"/>
+                            <TextBlock Text="{Binding Content, RelativeSource={RelativeSource AncestorType=Button}}" HorizontalAlignment="Left"  FontSize="{Binding FontSize, RelativeSource={RelativeSource AncestorType=Button}}" Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Margin="40 0 0 0" VerticalAlignment="Center"/>
+                            <materialDesign:PackIcon Kind="ChevronRight" HorizontalAlignment="Right" VerticalAlignment="Center"  Foreground="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}" Margin="0 0 20 0" Width="30" Height="30"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style x:Key="CustomButtonSmall" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border CornerRadius="10" Background="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}">
+                        <StackPanel  Margin="10" HorizontalAlignment="Center" Orientation="Horizontal">
+                            <TextBlock Text="{Binding Content, RelativeSource={RelativeSource AncestorType=Button}}" FontSize="16" HorizontalAlignment="Center" Foreground="{StaticResource bela}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CustomButtonSmallForDialog" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Border CornerRadius="10" Background="{Binding Foreground, RelativeSource={RelativeSource AncestorType=Button}}">
+                        <StackPanel  Margin="10" HorizontalAlignment="Center" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="{Binding Tag, RelativeSource={RelativeSource AncestorType=Button}}" Width="20" Height="20" Foreground="{StaticResource bela}" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                            <TextBlock Text="{Binding Content, RelativeSource={RelativeSource AncestorType=Button}}" Margin="10 0" FontSize="16" HorizontalAlignment="Center" Foreground="{StaticResource bela}"/>
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CustomButtonNextStep" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
+        <Setter Property="Margin" Value="20 20"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal" >
+                        <TextBlock FontSize="25" Foreground="{StaticResource svetloPlava}" VerticalAlignment="Center" HorizontalAlignment="Left">Dalje</TextBlock>
+                        <materialDesign:PackIcon Kind="ChevronRight" Foreground="{StaticResource svetloPlava}" VerticalAlignment="Center" Height="50" Width="50"/>
+                    </StackPanel>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DeleteButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="ToolTip" Value="Brisanje"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid Margin="0 0 10 10">
+                        <Ellipse Height="40" Width="40" Fill="{StaticResource deleteRed}"/>
+                        <Ellipse Height="30" Width="30">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="Icons\deleteP.png" Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="AddButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="ToolTip" Value="Dodavanje"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid Margin="0 0 10 10">
+                        <Ellipse Height="50" Width="50" Fill="{StaticResource addGreen}"/>
+                        <Ellipse Height="40" Width="40">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="Icons\addP.png" Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="DetailButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="ToolTip" Value="Detalji"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid  Margin="0 0 10 10" VerticalAlignment="Bottom">
+                        <Ellipse Height="40" Width="40" Fill="{StaticResource infoGray}"/>
+                        <Ellipse Height="30" Width="30">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="Icons\info1.png" Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="EditButtonStyle" TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="ToolTip" Value="Izmena"/>
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <Grid Margin="0 0 10 10" >
+                        <Ellipse Height="40" Width="40" Fill="{StaticResource editBlue}"/>
+                        <Ellipse Height="30" Width="30">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="Icons\editP1.png" Stretch="UniformToFill"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Grid>
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

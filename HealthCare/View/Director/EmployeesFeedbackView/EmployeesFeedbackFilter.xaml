@@ -1,0 +1,91 @@
+﻿<Page x:Class="HCIProjekat.View.EmployeesFeedbackView.EmployeesFeedbackFilter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.View.EmployeesFeedbackView"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Filter">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <TextBlock Foreground="{StaticResource svetloPlava}" Text="ID zaposlenog:" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <ComboBox x:Name="doctor" ItemsSource="{Binding Staff}" Margin="20 5">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Id}"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        </Grid>
+        <Grid Grid.Row="2">
+            <TextBlock Foreground="{StaticResource svetloPlava}" Text="Prosecna ocena od:" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+        </Grid>
+        <StackPanel Grid.Row="3">
+            <Grid>
+                <TextBox x:Name="gradeFrom" Height="40" Margin="20 0 20 0" VerticalAlignment="Center" PreviewTextInput="gradeFrom_PreviewTextInput" DataObject.Pasting="gradeFrom_Pasting"/>
+                <TextBlock Text="Unesite donju granicu ocene" FontSize="16">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=gradeFrom}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Foreground="Red" Text="*" FontSize="12"  VerticalAlignment="Top" Margin="20 0 0 0"/>
+                <TextBlock  Foreground="{StaticResource infoGray}" Text="Decimalni broj od 1 do 5" FontSize="12"  VerticalAlignment="Top" />
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Row="4">
+            <TextBlock Foreground="{StaticResource svetloPlava}" Text="Prosecna ocena do:" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+        </Grid>
+        <StackPanel Grid.Row="5">
+            <Grid>
+                <TextBox x:Name="gradeTo" Height="40" Margin="20 0 20 0" VerticalAlignment="Center" PreviewTextInput="gradeFrom_PreviewTextInput" DataObject.Pasting="gradeFrom_Pasting"/>
+                <TextBlock Text="Unesite gornju granicu ocene" FontSize="16">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=gradeTo}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Foreground="Red" Text="*" FontSize="12"  VerticalAlignment="Top" Margin="20 0 0 0"/>
+                <TextBlock  Foreground="{StaticResource infoGray}" Text="Decimalni broj od 1 do 5" FontSize="12"  VerticalAlignment="Top" />
+            </StackPanel>
+        </StackPanel>
+        <Button Grid.Row="6" x:Name="applyFilter" VerticalAlignment="Top" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Primeni" Foreground="{StaticResource svetloPlava}" Click="applyFilter_Click"/>
+        <Grid x:Name="dialog" Grid.RowSpan="7" Visibility="Collapsed"/>
+
+    </Grid>
+</Page>

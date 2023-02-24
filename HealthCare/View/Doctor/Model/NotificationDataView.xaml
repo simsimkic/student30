@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="HealthCareClinic.View.Model.NotificationDataView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HealthCareClinic.View.Model"
+             mc:Ignorable="d" >
+    <Grid>
+        <ScrollViewer Focusable="False" Margin="5 5 5 5">
+            <ItemsControl Focusable="False" ItemsSource="{Binding Data}" >
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </ScrollViewer>
+            
+            
+    </Grid>
+</UserControl>

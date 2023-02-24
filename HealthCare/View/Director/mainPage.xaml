@@ -1,0 +1,68 @@
+﻿<Page x:Class="HCIProjekat.mainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:HCIProjekat"
+      mc:Ignorable="d" 
+     Height="690" Width="430"
+      Title="Pocetna Strana">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Grid.RowSpan="2" Grid.ColumnSpan="2" Orientation="Vertical" Margin="0 50 0 0" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <Image Source="Styles\Images\Logo2.png" Height="200" VerticalAlignment="Top" MouseDown="Image_MouseDown"/>
+            <TextBlock FontSize="30" Foreground="{StaticResource tamnoPlava}" HorizontalAlignment="Center">Zdravo Korporacija</TextBlock>
+        </StackPanel>
+
+        <Grid Grid.Row="2" Grid.Column="0" Margin="10">
+            <Button x:Name="Zaposleni"  ToolTip="Zaposleni" Click="Zaposleni_Click">
+                <Border Background="{StaticResource tamnoPlava}" CornerRadius="20,20,20,20">
+                    <materialDesign:PackIcon Kind="PeopleGroup" Width="100" Height="100" Foreground="{StaticResource belaTekst}" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                </Border>
+            </Button>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1" Margin="10">
+            <Button x:Name="Lekovi" ToolTip="Lekovi" Click="Lekovi_Click">
+                <Border Background="{StaticResource tamnoPlava}" CornerRadius="20,20,20,20">
+                    <materialDesign:PackIcon Kind="Medicine" Width="100" Height="100" Foreground="{StaticResource belaTekst}" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                </Border>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="0" Margin="10">
+            <Button x:Name="Prostorije" ToolTip="Prostorije" Click="Prostorije_Click">
+                <Border Background="{StaticResource tamnoPlava}" CornerRadius="20,20,20,20" >
+                    <materialDesign:PackIcon Kind="Building" Width="100" Height="100" Foreground="{StaticResource belaTekst}" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                </Border>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="1" Margin="10">
+            <Button x:Name="Oprema" ToolTip="Oprema" Click="Oprema_Click">
+                <Border Background="{StaticResource tamnoPlava}" CornerRadius="20,20,20,20" >
+                    <materialDesign:PackIcon Kind="Stethoscope" Width="100" Height="100" Foreground="{StaticResource belaTekst}" VerticalAlignment="Center" HorizontalAlignment="Center"></materialDesign:PackIcon>
+                </Border>
+            </Button>
+        </Grid>
+    </Grid>
+</Page>

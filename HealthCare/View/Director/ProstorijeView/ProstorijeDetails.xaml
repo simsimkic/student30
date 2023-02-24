@@ -1,0 +1,54 @@
+﻿<Page x:Class="HCIProjekat.View.ProstorijeView.ProstorijeDetails"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.View.ProstorijeView"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Prostorije">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid  Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Broj prostorije:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding room.RoomNumber}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Sprat:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding room.Floor}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Odeljenje:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding room.RoomSector.Name}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Vrsta prostorije:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding room.RoomType}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Kvadratura prostorije:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding room.RoomSize}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <Grid Grid.Row="5">
+            <Button x:Name="withdraw" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Povratak" Foreground="{StaticResource infoGray}" Click="withdraw_Click"/>
+            <Button Name="editRoom" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Izmeni" Foreground="{StaticResource svetloPlava}" Click="editRoom_Click"/>
+        </Grid>
+    </Grid>
+</Page>

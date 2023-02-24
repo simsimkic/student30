@@ -1,0 +1,34 @@
+﻿<Page x:Class="HCIProjekat.ZaposleniView.ZaposleniAddThird"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:HCIProjekat.ZaposleniView"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Zaposleni">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Button Grid.Row="0" x:Name="doctor" Margin="20" Style="{StaticResource CustomButtonLarge}" FontSize="24" Content="Lekar" Tag="Stethoscope" Click="doctor_Click"/>
+        <Button Grid.Row="1" x:Name="secretary" Margin="20 0 20 20" Style="{StaticResource CustomButtonLarge}" FontSize="24" Content="Sekretar" Tag="Person" Click="secretary_Click"/>
+        <Button Grid.Row="2" x:Name="withdrawAdd" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Odustani" Foreground="{StaticResource infoGray}" Click="withdrawAdd_Click"/>
+        <Grid x:Name="dialog" Grid.RowSpan="3" Visibility="Collapsed"/>
+    </Grid>
+</Page>

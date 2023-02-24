@@ -1,0 +1,96 @@
+﻿<Page x:Class="ResolveView.AskQuestion"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      xmlns:local="clr-namespace:HealthCare"
+      mc:Ignorable="d" 
+      d:DesignHeight="1200" d:DesignWidth="1280"
+      Title="AskQuestion">
+
+    <Page.Resources>
+        <ResourceDictionary Source="/View/Patient/ThemeResourceDictionary.xaml"/>
+    </Page.Resources>
+
+    <StackPanel Margin="100,50,100,50" MinHeight="1000">
+        <StackPanel Margin="20,0,0,20">
+            <TextBlock FontSize="24" HorizontalAlignment="Left">Stojimo Vam na raspolaganju za sva pitanja</TextBlock>
+            <TextBlock FontSize="18" HorizontalAlignment="Left">Izaberite lekara kome želite da postavite pitanje</TextBlock>
+        </StackPanel>
+        <Grid Margin="20,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <TextBox Grid.Column="0" x:Name="DoctorSearch" VerticalContentAlignment="Center" FontSize="16" Height="30" Width="250" VerticalAlignment="Center"/>
+                <TextBlock Text="Pretraga po imenu" FontSize="16">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=DoctorSearch}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <Button Grid.Column="1" Style="{StaticResource WindowButton}" Click="SearchDoctor_Click" Width="30" Margin="10,0,0,0">
+                <fa:ImageAwesome Style="{StaticResource WindowIcon}" Icon="Search"/>
+            </Button>
+        </Grid>
+        <ComboBox x:Name="comboBox" ItemsSource="{Binding WorkPlaceCollection}" SelectedIndex="0" DisplayMemberPath="Name" HorizontalAlignment="Left" FontSize="16" Width="200" Margin="20,10,0,40"/>
+        <ItemsControl ItemsSource="{Binding SearchCollection}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Style="{StaticResource BasicButton}" Click="PickDoctor_Click" Margin="20">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Top" Source="{Binding Picture, Converter={StaticResource PathConverter}}" Width="220"/>
+                            <StackPanel DockPanel.Dock="Bottom" Background="LightBlue">
+                                <TextBlock FontSize="20" HorizontalAlignment="Center">
+                                    <TextBlock.Text>
+                                        <MultiBinding Converter="{StaticResource StringConcatenate}">
+                                            <Binding Path="Name"/>
+                                            <Binding Path="Surname"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <TextBlock FontSize="14" Text="{Binding WorkPlace.Name}" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+                            </StackPanel>
+                        </DockPanel>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <StackPanel x:Name="AskQuestionForm" Visibility="Collapsed">
+            <TextBlock FontSize="22" HorizontalAlignment="Left" Margin="0,200,0,0">Izabrali ste lakara, možete postaviti pitanje.</TextBlock>
+            <TextBlock FontSize="18" Text="{Binding DoctorTextBox}"/>
+            <TextBlock FontSize="18" HorizontalAlignment="Left"></TextBlock>
+            <Grid Margin="0,0,0,15">
+                <TextBox Grid.Column="0" x:Name="TitleForm" VerticalContentAlignment="Center" FontSize="16" Height="30" Width="250" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBlock Text="Naslov" FontSize="16">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=TitleForm}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <TextBox x:Name="QuestionForm" TextWrapping="Wrap" FontSize="16" Height="300"></TextBox>
+            <Button Style="{StaticResource BasicButton}" Click="ScheduleAppointment_Click" FontSize="18" HorizontalAlignment="Left" Width="200" Margin="0,5,0,100">Pošalji</Button>
+        </StackPanel>
+
+    </StackPanel>
+</Page>

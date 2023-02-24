@@ -1,0 +1,187 @@
+﻿<Page x:Class="HCIProjekat.View.SoftwareFeedbackView.SoftwareFeedback"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.View.SoftwareFeedbackView"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Ocena rada softvera">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="85"/>
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Foreground="{StaticResource svetloPlava}" Text="Dizajn aplikacije:" FontSize="20" VerticalAlignment="Center" Margin="20 10"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Width="430">
+            <Button x:Name="design1" Margin="20 0 0 0" VerticalAlignment="Center" Click="design1_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="designHart1" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="design2" Margin="10 0 0 0" VerticalAlignment="Center" Click="design2_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="designHart2" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="design3" Margin="10 0 0 0" VerticalAlignment="Center" Click="design3_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="designHart3" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="design4" Margin="10 0 0 0" VerticalAlignment="Center" Click="design4_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="designHart4" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="design5" Margin="10 0 0 0" VerticalAlignment="Center" Click="design5_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="designHart5" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+        </StackPanel>
+        
+        <TextBlock  Grid.Row="2" Foreground="{StaticResource svetloPlava}" Text="Funkcionalnost:" FontSize="20" VerticalAlignment="Center" Margin="20 10"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="3" Width="430" >
+            <Button x:Name="funcitionality1" Margin="20 0 0 0" VerticalAlignment="Center" Click="funcitionality1_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="funcitionalityHart1" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="funcitionality2" Margin="10 0 0 0" VerticalAlignment="Center" Click="funcitionality2_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="funcitionalityHart2" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="funcitionality3" Margin="10 0 0 0" VerticalAlignment="Center" Click="funcitionality3_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="funcitionalityHart3" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="funcitionality4" Margin="10 0 0 0" VerticalAlignment="Center" Click="funcitionality4_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="funcitionalityHart4" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="funcitionality5" Margin="10 0 0 0" VerticalAlignment="Center" Click="funcitionality5_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="funcitionalityHart5" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+        </StackPanel>
+        
+        <TextBlock Grid.Row="4" Foreground="{StaticResource svetloPlava}" Text="Brzina koriscenja:" FontSize="20" VerticalAlignment="Center" Margin="20 10"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="5" Width="430">
+            <Button x:Name="speed1" Margin="20 0 0 0" VerticalAlignment="Center" Click="speed1_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="speedHart1" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="speed2" Margin="10 0 0 0" VerticalAlignment="Center" Click="speed2_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="speedHart2" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="speed3" Margin="10 0 0 0" VerticalAlignment="Center" Click="speed3_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="speedHart3" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="speed4" Margin="10 0 0 0" VerticalAlignment="Center" Click="speed4_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="speedHart4" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="speed5" Margin="10 0 0 0" VerticalAlignment="Center" Click="speed5_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="speedHart5" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+        </StackPanel>
+        <TextBlock Grid.Row="6" Foreground="{StaticResource svetloPlava}" Text="Pouzdanost aplikacije:" FontSize="20" VerticalAlignment="Center" Margin="20 10"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="7" Width="430">
+            <Button x:Name="reliabillity1" Margin="20 0 0 0" VerticalAlignment="Center" Click="reliabillity1_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="reliabillityHart1" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="reliabillity2" Margin="10 0 0 0" VerticalAlignment="Center" Click="reliabillity2_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="reliabillityHart2" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="reliabillity3" Margin="10 0 0 0" VerticalAlignment="Center" Click="reliabillity3_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="reliabillityHart3" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="reliabillity4" Margin="10 0 0 0" VerticalAlignment="Center" Click="reliabillity4_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="reliabillityHart4" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+            <Button x:Name="reliabillity5" Margin="10 0 0 0" VerticalAlignment="Center" Click="reliabillity5_Click">
+                <Grid>
+                    <materialDesign:PackIcon Kind="HeartOutline" Width="40" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                    <materialDesign:PackIcon x:Name="reliabillityHart5" Kind="Heart" Width="40" Visibility="Collapsed" Height="40" Foreground="{StaticResource tamnoPlava}"/>
+                </Grid>
+            </Button>
+        </StackPanel>
+        <TextBlock Grid.Row="8" Foreground="{StaticResource svetloPlava}" Text="Dodatni komentar:" FontSize="20" VerticalAlignment="Center" Margin="20 10"/>
+        <Grid  Grid.Row="9">
+            <TextBox x:Name="feedbackDescription" TextWrapping="Wrap" VerticalContentAlignment="Top" FontSize="14" AcceptsReturn="True" Margin="20 0"/>
+            <TextBlock Text="Unesite dodatni komentar" VerticalAlignment="Top" FontSize="16">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=feedbackDescription}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+        <Button Grid.Row="10" x:Name="rateApp" HorizontalAlignment="Center"  VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Oceni" Foreground="{StaticResource svetloPlava}" Click="rateApp_Click"/>
+        <Grid x:Name="dialog" Grid.RowSpan="11" Visibility="Collapsed"/>
+    </Grid>
+</Page>

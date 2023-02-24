@@ -1,0 +1,31 @@
+﻿<Page x:Class="HCIProjekat.View.ObavestenjeView.ObavestenjeDetalji"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.View.ObavestenjeView"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Obavestenja">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="{Binding Path=Notification.Title}" Foreground="{StaticResource svetloPlava}" FontSize="25" TextWrapping="Wrap"  VerticalAlignment="Center" Margin="20 10"/>
+        <TextBlock Grid.Row="1" Text="{Binding Path=Notification.Text}" Foreground="{StaticResource tamnoPlava}" TextWrapping="Wrap"  FontSize="14"  VerticalAlignment="Top" Margin="20 10"/>
+        <DockPanel Grid.Row="2">
+            <TextBlock  Text="{Binding Path=Notification.Date, StringFormat=dd.MM.yyyy.}" Foreground="{StaticResource infoGray}"  FontSize="14"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20 10"/>
+        </DockPanel>
+    </Grid>
+</Page>

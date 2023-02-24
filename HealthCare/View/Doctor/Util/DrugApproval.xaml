@@ -1,0 +1,101 @@
+﻿<Window x:Class="HealthCareClinic.View.DrugApproval"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthCareClinic.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="HealthCare Clinic" 
+        Height="Auto" Width="Auto"
+        WindowStartupLocation = "CenterScreen"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        Icon="../../../View/Doctor/ViewResources/Images/hospitalicon.ico">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0" VerticalAlignment="Stretch" HorizontalAlignment="Center" Margin="10 15 10 15">
+            <TextBlock TextAlignment="Center" Background="DodgerBlue" Text="Lekovi na cekanju"/>
+
+            <ListBox ItemsSource="{Binding DrugsForApproval}" DisplayMemberPath="Name" x:Name="listBoxDrugForApprov" HorizontalContentAlignment="Center" Width="150" Height="400" PreviewKeyDown="listBoxDrugForApprov_PreviewKeyDown" SelectionChanged="listBoxDrugForApprov_SelectionChanged"/>
+        </StackPanel>
+
+        <Grid Margin="0 15 10 15" Grid.Column="1">
+
+            <Border BorderBrush="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}" BorderThickness="1">
+
+                <StackPanel Orientation="Vertical">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <StackPanel Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal" >
+                            <Label Name="lblDrugName" Content="Ime leka:"/>
+                            <Label Margin="-5 0 0 0" Name="lblDrugNameValue"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal" >
+                            <Label Name="lblDrugID" Content="Sifra:"/>
+                            <Label Margin="-5 0 0 0" Name="lblDrugIDValue" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal" >
+                            <Label Name="lblProducer" Content="Proizvodjac:"/>
+                            <Label Margin="-5 0 0 0" Name="lblProducerValue" />
+                        </StackPanel>
+
+                    </Grid>
+                   
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Name="lblDrugFormat" Content="Format:"/>
+                        <Label Margin="-5 0 0 0" Name="lblDrugFormatValue" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Name="lblDrugSize" Content="Kolicina:"/>
+                        <Label Margin="-5 0 0 0" Name="lblDrugSizeValue"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Name="lblDrugDescription" Content="Description:" Width="70"/>
+                        <TextBox Name="tbDrugDescription" Focusable="False" IsReadOnly="True" Margin="20 5 10 0" TextWrapping="Wrap" HorizontalAlignment="Stretch" Width="400" Height="105"/>
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Name="lblDrugAllergens" Content="Alergies:" Width="70" />
+                        <TextBox Name="tbDrugAllergens" Focusable="False" IsReadOnly="True" Margin="20 5 10 0" TextWrapping="Wrap" HorizontalAlignment="Stretch" Width="400" Height="105" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal">
+                        <Label Name="lblDrugSideEffect" Content="Side effect:" Width="70    " />
+                        <TextBox Name="tbDrugSideEffect" Focusable="False" IsReadOnly="True" Margin="20 5 10 0 " TextWrapping="Wrap" HorizontalAlignment="Stretch" Width="400" Height="105"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </Border>
+           
+        </Grid>
+        
+
+
+        
+    </Grid>
+</Window>

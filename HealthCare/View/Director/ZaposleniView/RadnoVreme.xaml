@@ -1,0 +1,80 @@
+﻿<Page x:Class="HCIProjekat.ZaposleniView.RadnoVreme"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.ZaposleniView"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+    mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Radno Vreme">
+
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+                <ResourceDictionary Source="../Styles/Kalendar.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="255"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <StackPanel Background="{StaticResource tamnoPlava}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="340"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="0" Margin="20 0 0 0" x:Name="Godina" FontSize="25" Foreground="{StaticResource belaTekst}"/>
+                    <TextBlock Grid.Row="1" Grid.Column="0" Margin="20 0 0 0" x:Name="Datum" FontSize="30" Foreground="{StaticResource belaTekst}"/>
+                    <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="Od:" FontSize="25" Foreground="{StaticResource belaTekst}"/>
+                        <TextBlock x:Name="vremeOd" FontSize="25" Foreground="{StaticResource belaTekst}"/>
+                    </StackPanel>
+                    <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                        <TextBlock Text="Do:" FontSize="25" Foreground="{StaticResource belaTekst}"/>
+                        <TextBlock x:Name="vremeDo" FontSize="25" Foreground="{StaticResource belaTekst}"/>
+                    </StackPanel>
+                </Grid>
+            </StackPanel>
+            <Viewbox Height="380">
+                <Calendar x:Name="Kalendar" SelectionMode="SingleRange" SelectedDatesChanged="Kalendar_SelectedDatesChanged">
+                    <Calendar.CalendarDayButtonStyle>
+                        <Style TargetType="CalendarDayButton" BasedOn="{StaticResource {x:Type CalendarDayButton}}">
+                            <EventSetter Event="Loaded" Handler="calendarButton_Loaded" />
+                        </Style>
+                    </Calendar.CalendarDayButtonStyle>
+                </Calendar>
+            </Viewbox>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <StackPanel Margin="20 10 0 0" Orientation="Horizontal">
+                <TextBlock x:Name="TextBlockObjasnjenje" FontSize="18" Text="Datum radnog vremena: " Foreground="{StaticResource infoGray}"/>
+                <TextBlock x:Name="pocetakRadnogVremena" FontSize="18" Margin="10 0" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+            <StackPanel Margin="20 0 0 0" Orientation="Horizontal">
+                <TextBlock x:Name="TextBlockObjasnjenje1" FontSize="18" Text="Datum zavrsetka radnog vremena: " Visibility="Collapsed" Foreground="{StaticResource infoGray}"/>
+                <TextBlock x:Name="krajRadnogVremena" FontSize="18" Margin="10 0" Visibility="Collapsed" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+            <Button x:Name="addWorkTime" Margin="20 10 20 10" Style="{StaticResource CustomButtonLargeDelete}" Foreground="DarkGreen" FontSize="20" Content="Dodavanje radnog vremena" Tag="PlusCircle" Click="addWorkTime_Click"/>
+            <Button x:Name="deleteWorkTime" Margin="20 10 20 10" Style="{StaticResource CustomButtonLargeDelete}" Foreground="DarkRed" FontSize="20" Content="Brisanje radnog vremena" Tag="Bin" Click="deleteWorkTime_Click" Visibility="Collapsed"/>
+            <Button x:Name="addExistingWorkTime" Margin="20 10 20 10" Style="{StaticResource CustomButtonLargeDelete}" Foreground="DarkGreen" FontSize="16" Content="Dodavanje postojeceg radnog vremena" Tag="PlusCircle" Click="addExistingWorkTime_Click"/>
+            <Button x:Name="editWorkTime" Margin="20 10 20 10" Style="{StaticResource CustomButtonLargeDelete}" Visibility="Collapsed" Foreground="{StaticResource svetloPlava}" FontSize="20" Content="Izmena radnog vremena" Tag="Pencil" Click="editWorkTime_Click"/>
+
+        </StackPanel>
+        <Grid x:Name="dialog" Grid.RowSpan="2" Visibility="Collapsed"/>
+
+    </Grid>
+</Page>

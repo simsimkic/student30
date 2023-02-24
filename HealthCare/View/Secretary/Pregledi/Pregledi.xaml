@@ -1,0 +1,40 @@
+﻿<Window x:Class="Sekretar.Pregledi.Pregledi"
+        ResizeMode="NoResize"
+        Style="{DynamicResource MyStyle}"
+        xmlns:language="clr-namespace:Secretary.Properties.Langs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sekretar.Pregledi"
+        mc:Ignorable="d"
+        Title="{x:Static language:Lang.appointments}" Height="450" Width="800">
+
+    <Grid HorizontalAlignment="Right" Margin="0,0,-0.4,0" Width="794" Height="420" VerticalAlignment="Top">
+        <Button Style="{DynamicResource MyStyleButton}" Click="ButtonClickPocetna" FontSize="15" Margin="39,366,645,23" Content="{x:Static language:Lang.back}"/>
+        <Label FontSize="15" Margin="461,29,148.6,360" Content="{x:Static language:Lang.chooseAppointmentDate}"/>
+        <ComboBox FontSize="15" Name="Doktor" Margin="105,145,543,242" ItemsSource="{Binding Collection}"
+                  SelectionChanged="selectOption_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="Name"/>
+                                <Binding Path="Surname"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label FontSize="15" Margin="105,105,543,280" Content="{x:Static language:Lang.doctor}"/>
+        <Viewbox Margin="396,74,72,83">
+            <Calendar x:Name="Kalendar" Height="171" Width="211"
+             Background="White"
+             BorderThickness="1"></Calendar>
+        </Viewbox>
+        <Button Style="{DynamicResource MyStyleButton}" Click="ButtonClickPotvrdi" FontSize="15" Margin="633,366,52,23" Content="{x:Static language:Lang.confirm}"/>
+
+    </Grid>
+</Window>

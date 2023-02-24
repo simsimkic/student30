@@ -1,0 +1,107 @@
+﻿<Page x:Class="HCIProjekat.UpravnikNext"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:HCIProjekat"
+      mc:Ignorable="d" 
+      xmlns:extension="clr-namespace:HCIProjekat.View"
+            xmlns:enum="clr-namespace:Model.Users" 
+     Height="690" Width="430"
+      Title="Upravnik">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Foreground="{StaticResource svetloPlava}" Text="Prebivalište:" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+        <StackPanel Grid.Row="1">
+            <Grid>
+                <TextBox Grid.Row="1" x:Name="textBoxPrebivaliste" Text="{Binding Residence}" Height="40" Margin="20 0 20 0" VerticalAlignment="Center"/>
+                <TextBlock Text="Ulica, Broj, Grad, Postanski broj, Drzava" FontSize="16" FontStyle="Italic">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=textBoxPrebivaliste}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Foreground="Red" Text="*" FontSize="12"  VerticalAlignment="Top" Margin="20 0 0 0"/>
+                <TextBlock  Foreground="{StaticResource infoGray}" Text="primer: Bulevaj oslobodjenja, 24, Novi Sad, 15000, Srbija" FontSize="12"  VerticalAlignment="Top" />
+            </StackPanel>
+        </StackPanel>
+        <TextBlock  Grid.Row="2" Foreground="{StaticResource svetloPlava}" Text="Stepen strucne spreme:" FontSize="16"  VerticalAlignment="Center" Margin="20 10"/>
+        <ComboBox x:Name="EducationLevel" Grid.Row="3" Margin="20 5 20 5" ItemsSource="{Binding Source={extension:EnumBindingSource {x:Type enum:Educationlevel}}}"/>
+        <TextBlock Grid.Row="4" Foreground="{StaticResource svetloPlava}" Text="Kontakt telefon:" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+        <StackPanel Grid.Row="5">
+            <Grid>
+                <TextBox x:Name="telefon" Height="40" Margin="20 0 20 0" VerticalAlignment="Center" Text="{Binding Phone}" PreviewTextInput="telefon_PreviewTextInput" DataObject.Pasting="telefon_Pasting"/>
+                <TextBlock Text="Unesite telefon zaposlenog" FontSize="16">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=telefon}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Foreground="Red" Text="*" FontSize="12"  VerticalAlignment="Top" Margin="20 0 0 0"/>
+                <TextBlock  Foreground="{StaticResource infoGray}" Text="format: +38164123456789" FontSize="12"  VerticalAlignment="Top" />
+            </StackPanel>
+        </StackPanel>
+        <TextBlock Grid.Row="6" Foreground="{StaticResource svetloPlava}" Text="E-mail adresa:" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+        <StackPanel Grid.Row="7">
+            <Grid>
+                <TextBox x:Name="email" Height="40" Margin="20 0 20 0" Text="{Binding Email}" VerticalAlignment="Center"/>
+                <TextBlock Text="Unesite e-mail adresu zaposlenog" FontSize="16">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=email}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Foreground="Red" Text="*" FontSize="12"  VerticalAlignment="Top" Margin="20 0 0 0"/>
+                <TextBlock  Foreground="{StaticResource infoGray}" Text="format: primer@primer.rs" FontSize="12"  VerticalAlignment="Top" />
+            </StackPanel>
+        </StackPanel>
+        <Button Grid.Row="8" x:Name="PasswordChange" Style="{StaticResource CustomButtonLarge}" FontSize="20" Tag ="Lock" Content="Promena lozinke"  Margin="20" Click="PasswordChange_Click"/>
+        <Grid Grid.Row="9">
+            <Button x:Name="withdrawEdit" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Odustani" Foreground="{StaticResource infoGray}" Click="withdrawEdit_Click"/>
+            <Button x:Name="EditUpravnik" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Izmeni" Foreground="{StaticResource svetloPlava}" Click="EditUpravnik_Click"/>
+        </Grid>
+        <Grid x:Name="dialog" Grid.RowSpan="10" Visibility="Collapsed"/>
+    </Grid>
+</Page>

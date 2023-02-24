@@ -1,0 +1,45 @@
+﻿<Window x:Class="Sekretar.Sale.Sale"
+        Style="{DynamicResource MyStyle}"
+        xmlns:language="clr-namespace:Secretary.Properties.Langs"
+        ResizeMode="NoResize"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sekretar.Sale"
+        mc:Ignorable="d"
+        Title="{x:Static language:Lang.rooms}" Height="450" Width="800">
+    <Grid HorizontalAlignment="Right" Margin="0,0,-0.4,0" Width="794" Height="420" VerticalAlignment="Top">
+        <Button Style="{DynamicResource MyStyleButton}" Click="ButtonClickPocetna" FontSize="15" Margin="43,366,639.6,23" Content="{x:Static language:Lang.back}"/>
+        <Label FontSize="15" Margin="421,29,97,360" Content="{x:Static language:Lang.chooseDateForDetails}"/>
+        <ComboBox  Name="Sektor" SelectionChanged="ComboBox_SelectionChangedSector" ItemsSource="{Binding Sectors}" Margin="53,189,613.6,204" IsEnabled="false">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" FontSize="15"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox Name="Soba" SelectionChanged="SelectOption_SelectionRoomChanged" ItemsSource="{Binding CollectionRoom}" Margin="234,189,432.6,204" IsEnabled="false">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding RoomNumber}" FontSize="15"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label FontSize="16" Margin="53,153,614,236" Content="{x:Static language:Lang.sector}"/>
+        <Label FontSize="16" Margin="234,153,433,236" Content="{x:Static language:Lang.room}"/>
+        <Viewbox Margin="396,74,72,83">
+            <Calendar Name="Kalendar" Height="171" Width="207"
+             Background="White"
+             BorderThickness="1"
+             ></Calendar>
+        </Viewbox>
+        <Button Style="{DynamicResource MyStyleButton}" Click="ButtonClickPrikazi" FontSize="15" Margin="629,366,53.6,23" Content="{x:Static language:Lang.show}"/>
+        <Label FontSize="16" Margin="53,42,652.6,347" Content="{x:Static language:Lang.roomType}"/>
+        <ComboBox Name="VrstaSale" Margin="53,78,613.6,315" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Content="Operaciona sala"/>
+            <ComboBoxItem Content="Soba za lezanje"/>
+        </ComboBox>
+
+    </Grid>
+</Window>

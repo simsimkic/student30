@@ -1,0 +1,154 @@
+﻿<Page x:Class="HealthCareClinic.View.TreatmentViewPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthCareClinic.View"
+      mc:Ignorable="d" 
+      Height="Auto"
+      Width="Auto"
+      Title="TreatmentViewPage">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="45" />
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2*"/>
+            </Grid.ColumnDefinitions>
+
+            <Separator VerticalAlignment="Top" Grid.Row="1" Grid.ColumnSpan="2" Margin="0"/>
+
+            <DockPanel Grid.Row="0" Grid.ColumnSpan="2">
+
+
+                <Button  Name="btnChooseLastDate" Style="{StaticResource buttonToolBarStyle}" Margin="10 5 5 5" Height="25" Width="25" Click="btnChooseLastDate_Click">
+                    <materialDesign:PackIcon Kind="ArrowLeftDropCircle" VerticalAlignment="Center" Height="25" Width="25"  Foreground="DodgerBlue"/>
+                </Button>
+
+                <DatePicker SelectedDateChanged="dpTreatmentView_SelectedDateChanged"  IsTodayHighlighted="True" Name="dpTreatmentView" SelectedDate="{Binding Date, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="120"></DatePicker>
+
+                <Button Name="btnChooseNextDate" Style="{StaticResource buttonToolBarStyle}" Margin="5 5 5 5" Height="25" Width="25" Click="btnChooseNextDate_Click">
+                    <materialDesign:PackIcon Kind="ArrowRightDropCircle" Height="25" Width="25" Foreground="DodgerBlue"/>
+                </Button>
+
+                <CheckBox x:Name="cbCheck" Unchecked="CheckBox_Unchecked" Checked="CheckBox_Checked" VerticalAlignment="Center" Margin="25 5 5 5 ">Prikazi samo predstojece</CheckBox>
+
+            </DockPanel>
+
+            <DataGrid SelectionChanged="tableTreatmentView_SelectionChanged" MouseDoubleClick="tableTreatmentView_MouseDoubleClick" PreviewKeyDown="tableTreatmentView_PreviewKeyDown" CanUserReorderColumns="False" BorderThickness="1" Grid.Row="1" Grid.Column="0" x:Name="tableTreatmentView" ItemsSource="{Binding Appointments}" IsReadOnly="True" 
+                      SelectionMode="Single" AutoGenerateColumns="False" CanUserResizeColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Vreme" Binding="{Binding StartDateTime, StringFormat='HH:mm'}" Width="1*"/>
+                    <DataGridTextColumn Header="Broj kartona" Binding="{Binding Patient.MedicalRecord.Id}"  Width="1*"/>
+                    <DataGridTextColumn Header="Pacijent" Width="1*">
+                        <DataGridTextColumn.Binding>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="Patient.Name" />
+                                <Binding Path="Patient.Surname" />
+                            </MultiBinding>
+                        </DataGridTextColumn.Binding>
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Header="Godiste" Binding="{Binding Patient.BirthDate.Year}" Width="1*"/>
+                    <DataGridTextColumn Header="Sala" Binding="{Binding Room.RoomNumber}" Width="1*"/>
+                    <DataGridTextColumn Header="Vrsta pregleda" Binding="{Binding Type}" Width="2*"/>
+                </DataGrid.Columns>
+            </DataGrid>
+
+
+
+            <Grid Grid.Column="1" Grid.Row="1" DataContext="{Binding ElementName=tableTreatmentView,Path=SelectedItem}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <Separator VerticalAlignment="Top" Grid.Row="1" Grid.ColumnSpan="2" Margin="0"/>
+                <Separator VerticalAlignment="Top" Grid.Row="2" Grid.ColumnSpan="2" Margin="0"/>
+                <Separator VerticalAlignment="Top" Grid.Row="3" Grid.ColumnSpan="2" Margin="0"/>
+                <Separator VerticalAlignment="Top" Grid.Row="4" Grid.ColumnSpan="2" Margin="0"/>
+
+                <Grid Grid.Row="0" Margin="5 5 5 5">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0">Datum i vreme:</Label>
+                    <Label Grid.Row="1" Grid.Column="0">Vrsta pregleda:</Label>
+
+                    <!-- bindovanje podataka iz kartona-->
+                    <Label Name="lblDatum" Grid.Row="0" Grid.Column="1"/>
+                    <Label Name="lblType" Grid.Row="1" Grid.Column="1"/>
+                </Grid>
+
+
+                <Grid Grid.Row="1" Margin="5 5 5 5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0">Anamneza:</Label>
+                    <!-- bindovanje anamneze-->
+                    <TextBox Focusable="False" Grid.Row="1" Name="tbAnamnesis" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="5 5 5 5" IsReadOnly="True" />
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="5 5 5  5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0">Dijagnoza:</Label>
+                    <!-- bindovanje dijagnoze-->
+                    <TextBox Focusable="False" Grid.Row="1" Name="tbDiagnosis" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="5 5 5 5" IsReadOnly="True" />
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="5 5 5  5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0">Terapija:</Label>
+                    <!-- bindovanje terapije-->
+                    <TextBox Focusable="False" Grid.Row="1" Name="tbTherapy" TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="5 5 5 5" IsReadOnly="True" />
+                </Grid>
+
+                <Grid Grid.Row="4" Margin="5 5 5  5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0">Napomena:</Label>
+                    <!-- bindovanje napomene-->
+                    <TextBox Focusable="False" Grid.Row="1" Name="tbNote"  TextWrapping="Wrap" VerticalScrollBarVisibility="Visible" Margin="5 5 5 5" IsReadOnly="True" >
+                    </TextBox>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

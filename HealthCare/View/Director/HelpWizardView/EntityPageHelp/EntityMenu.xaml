@@ -1,0 +1,42 @@
+﻿<Page x:Class="HCIProjekat.View.HelpWizardView.EntityMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.View.HelpWizardView"
+      mc:Ignorable="d" 
+       Height="750" Width="430"
+      Title="FirstHelpPage">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid>
+        <Path Fill="#3d3d3d" Opacity="0.85">
+            <Path.Data>
+                <CombinedGeometry GeometryCombineMode="Xor">
+                    <CombinedGeometry.Geometry1>
+                        <RectangleGeometry Rect="0,0,1000,10000"/>
+                    </CombinedGeometry.Geometry1>
+                    <CombinedGeometry.Geometry2>
+                        <RectangleGeometry x:Name="transparentRect" RadiusX="10" RadiusY="10" Rect="360,520,70,240"/>
+                    </CombinedGeometry.Geometry2>
+                </CombinedGeometry>
+            </Path.Data>
+        </Path>
+        <StackPanel Orientation="Vertical">
+            <TextBlock Text="Opcije koje" Margin="20 130 0 0" Foreground="{StaticResource belaTekst}" FontFamily="Segoe UI Light" FontSize="40" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            <TextBlock Text="su dostupne"  Foreground="{StaticResource belaTekst}" FontFamily="Segoe UI Light" FontSize="40" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+            <TextBlock Text="za funkcionalnost"  Foreground="{StaticResource belaTekst}" FontFamily="Segoe UI Light" FontSize="40" TextWrapping="Wrap" HorizontalAlignment="Center"/>
+        </StackPanel>
+        <Grid  VerticalAlignment="Bottom" Margin="0 250">
+            <Button HorizontalAlignment="Left" Style="{StaticResource CustomButtonSmall}" Margin="20" Foreground="Black" Content="Odustanak" Name="odustanak" Click="odustanak_Click"/>
+            <Button HorizontalAlignment="Right" Style="{StaticResource CustomButtonSmall}" Margin="20" Foreground="{StaticResource infoGray}" Content="Nastavak" Name="nastavak" Click="nastavak_Click"/>
+        </Grid>
+    </Grid>
+</Page>

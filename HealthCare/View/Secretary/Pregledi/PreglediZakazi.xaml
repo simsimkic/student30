@@ -1,0 +1,27 @@
+﻿<Window x:Class="Sekretar.Pregledi.PreglediZakazi"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sekretar.Pregledi"
+        xmlns:language="clr-namespace:Secretary.Properties.Langs"
+        mc:Ignorable="d"
+        Closing="Window_closing"
+        ResizeMode="NoResize"
+        Style="{DynamicResource MyStyle}"
+        Title="{x:Static language:Lang.makeAnAppointment}" Height="335.917" Width="346.342">
+    <Grid Margin="0,0,0,-6.6" HorizontalAlignment="Right" Width="340" Height="313" VerticalAlignment="Top">
+        <Button Name="btnCancel" IsEnabled="False" IsCancel="true" Margin="352,0,0,0" ></Button>
+        <Label FontSize="15" Margin="36,22,225,259" Content="{x:Static language:Lang.name}"/>
+        <Label FontSize="15" Margin="36,91,225,190" Content="{x:Static language:Lang.surname}"/>
+        <Label FontSize="15" Margin="36,160,225,122" Content="Jmbg:"/>
+        <TextBox Name="Jmbg" FontSize="15" Margin="36,191,32,89"/>
+        <Button Style="{DynamicResource MyStyleButton}" Click="ButtonClickZakazi" Margin="0,252,32,0" Content="{x:Static language:Lang.confirm}" Height="27" VerticalAlignment="Top" HorizontalAlignment="Right" Width="67"/>
+        <TextBox Name="Prezime" Margin="36,123,32,158"/>
+        <TextBox Name="Ime" Margin="36,54,32,227" TextChanged="Ime_TextChanged"/>
+        <Label x:Name="Smena" FontSize="13" Margin="-284,123,598,181" Content="S" RenderTransformOrigin="0.387,0.515"/>
+        <Label x:Name="Smena_Copy" FontSize="13" Margin="-177,2,483,302" Content="{x:Static language:Lang.shift}"/>
+        <Label x:Name="Doktor" FontSize="13" Margin="367,2,-110,302" Content="Doktor"/>
+        <Label x:Name="Datum" FontSize="13" Margin="367,40,-111,264" Content="datum"/>
+    </Grid>
+</Window>

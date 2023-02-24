@@ -1,0 +1,1 @@
+{"$type":"System.Collections.Generic.List`1[[Model.Communication.SoftwareRating, HealthCare]], mscorlib","$values":[{"$type":"Model.Communication.SoftwareRating, HealthCare","Note":"Svaka cast","Design":4,"Reliabillity":4,"Speed":4,"Functionality":4},{"$type":"Model.Communication.SoftwareRating, HealthCare","Note":"","Design":0,"Reliabillity":4,"Speed":4,"Functionality":4}]}

@@ -1,0 +1,83 @@
+﻿<Page x:Class="HCIProjekat.View.ObavestenjeView.ObavestenjeAdd"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.View.ObavestenjeView"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Obavestenja">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Foreground="{StaticResource svetloPlava}" Text="Naslov obavestenja:" FontSize="16"  VerticalAlignment="Center" Margin="20 10"/>
+        <Grid Grid.Row="1">
+            <TextBox x:Name="title" Text="{Binding NotificationTitle}" Height="40" Margin="20 0 20 0" VerticalAlignment="Center"/>
+            <TextBlock Text="Unesite naslov obavestenja" FontSize="16">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=Text, ElementName=title}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+        <TextBlock Grid.Row="2" Foreground="{StaticResource svetloPlava}" Text="Primaoci obavestenja:" FontSize="16"  VerticalAlignment="Center" Margin="20 10"/>
+        <ComboBox Grid.Row="3" Name="Primaoci" Margin="20 5">
+            <ComboBoxItem>
+                <TextBlock Text="Svi korisnici" FontSize="16"/>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock Text="Svi zaposleni" FontSize="16"/>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock Text="Doktori" FontSize="16"/>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock Text="Pacijenti" FontSize="16"/>
+            </ComboBoxItem>
+            <ComboBoxItem>
+                <TextBlock Text="Sekretari" FontSize="16"/>
+            </ComboBoxItem>
+        </ComboBox>
+        <TextBlock Grid.Row="4" Foreground="{StaticResource svetloPlava}" Text="Tekst:" FontSize="16"  VerticalAlignment="Center" Margin="20 10"/>
+        <Grid Grid.Row="5">
+            <TextBox x:Name="tekst" Text="{Binding Text}" TextWrapping="Wrap"  VerticalContentAlignment="Top" FontSize="14" AcceptsReturn="True" Margin="20 0"/>
+            <TextBlock Text="Unesite zeljeni tekst obavestenja" VerticalAlignment="Top" FontSize="14">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=Text, ElementName=tekst}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+        <Grid Grid.Row="6">
+            <Button x:Name="withdrawAdd" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Odustani" Foreground="{StaticResource infoGray}" Click="withdrawAdd_Click"/>
+            <Button Name="addEquipment" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Potvrdi" Foreground="{StaticResource svetloPlava}" Click="addConfirmation_Click"/>
+        </Grid>
+        <Grid x:Name="dialog" Grid.RowSpan="7" Visibility="Collapsed"/>
+    </Grid>
+</Page>

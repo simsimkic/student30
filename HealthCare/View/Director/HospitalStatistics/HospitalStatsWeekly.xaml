@@ -1,0 +1,85 @@
+﻿<Page x:Class="HCIProjekat.HospitalStatisticsWeekly"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:HCIProjekat"
+      mc:Ignorable="d" 
+       Height="690" Width="430"
+      Title="Bolnica">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <Button x:Name="nedeljno" Background="Transparent" BorderBrush="Transparent"  Margin="5">
+                <Border CornerRadius="15" Width="130"  Background="{StaticResource infoGray}">
+                    <StackPanel Margin="10" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="Nedeljno" HorizontalAlignment="Center"  FontSize="24" Foreground="{StaticResource belaTekst}"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </Button>
+            <Button x:Name="mesecno" Background="Transparent" BorderBrush="Transparent"  Margin="5" Click="mesecno_Click">
+                <Border CornerRadius="15" Width="130"  Background="{StaticResource svetloPlava}">
+                    <StackPanel Margin="10" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="Mesecno" HorizontalAlignment="Center"  FontSize="24" Foreground="{StaticResource belaTekst}"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </Button>
+            <Button x:Name="godisnje" Background="Transparent" BorderBrush="Transparent"  Margin="5" Click="godisnje_Click">
+                <Border CornerRadius="15" Width="130"  Background="{StaticResource svetloPlava}">
+                    <StackPanel Margin="10" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <TextBlock Text="Godisnje" HorizontalAlignment="Center"  FontSize="24" Foreground="{StaticResource belaTekst}"  VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </Button>
+        </DockPanel>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" CornerRadius="20" Margin="20"  Background="{StaticResource svetloPlava}">
+                <Grid>
+                    <TextBlock Text="Broj zaposlenih" Foreground="{StaticResource belaTekst}" FontFamily="Segoe UI Light" Margin="20 5" FontSize="35"/>
+                    <TextBlock Text="{Binding BrojZaposlenih}" Foreground="{StaticResource belaTekst}" Margin="20 50 0 0" FontFamily="Segoe UI Light" FontSize="40"/>
+                    <materialDesign:PackIcon Kind="PeopleGroup" Foreground="{StaticResource belaTekst}" Margin="300 50 20 0" Width="50" Height="50"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="1" CornerRadius="20" Margin="20" BorderThickness="3" BorderBrush="{StaticResource svetloPlava}" >
+                <Grid>
+                    <TextBlock Text="Broj pacijenata" Foreground="{StaticResource svetloPlava}" FontFamily="Segoe UI Light" Margin="20 5" FontSize="35"/>
+                    <TextBlock Text="{Binding BrojPacijenata}" Foreground="{StaticResource svetloPlava}" Margin="20 50 0 0" FontFamily="Segoe UI Light" FontSize="40"/>
+                    <materialDesign:PackIcon Kind="People" Foreground="{StaticResource svetloPlava}" Margin="300 50 20 0" Width="50" Height="50"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" CornerRadius="20" Margin="20" BorderThickness="3" BorderBrush="{StaticResource svetloPlava}" >
+                <Grid>
+                    <TextBlock Text="Broj pregleda" Foreground="{StaticResource svetloPlava}" FontFamily="Segoe UI Light" Margin="20 5" FontSize="35"/>
+                    <TextBlock  Text="{Binding BrojPregleda}" Foreground="{StaticResource svetloPlava}" FontFamily="Segoe UI Light" Margin="20 50 0 0" FontSize="40"/>
+                    <materialDesign:PackIcon Kind="Stethoscope" Foreground="{StaticResource svetloPlava}" Margin="300 50 20 0" Width="50" Height="50"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="3" CornerRadius="20" Margin="20" BorderThickness="3" BorderBrush="{StaticResource svetloPlava}" >
+                <Grid>
+                    <TextBlock Text="Broj operacija" Foreground="{StaticResource svetloPlava}" FontFamily="Segoe UI Light" Margin="20 5" FontSize="35"/>
+                    <TextBlock  Text="{Binding BrojOperacija}" Foreground="{StaticResource svetloPlava}" FontFamily="Segoe UI Light" Margin="20 50 0 0" FontSize="40"/>
+                    <materialDesign:PackIcon Kind="Needle" Foreground="{StaticResource svetloPlava}" Margin="300 50 20 0" Width="50" Height="50"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Grid>
+</Page>

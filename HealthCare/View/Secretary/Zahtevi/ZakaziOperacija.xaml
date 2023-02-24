@@ -1,0 +1,68 @@
+﻿<Window x:Class="Sekretar.Zahtevi.SmestiOperacija"
+        ResizeMode="NoResize"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:language="clr-namespace:Secretary.Properties.Langs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:extension="clr-namespace:HCIProjekat.View"
+      xmlns:enum="clr-namespace:Model.Rooms" 
+        xmlns:local="clr-namespace:Sekretar.Zahtevi"
+        mc:Ignorable="d"
+        Style="{DynamicResource MyStyle}"
+        Title="{x:Static language:Lang.setSurgeryDate}" Height="450" Width="800">
+    <Grid HorizontalAlignment="Right" Margin="0,0,-0.4,0" Width="794" Height="420" VerticalAlignment="Top">
+        <Button Style="{DynamicResource MyStyleButton}" FontSize="15" Click="ButtonClickOdustani" Margin="43,366,639.6,23" Content="{x:Static language:Lang.cancel}"/>
+        <Label FontSize="15" Margin="465,29,148.6,360" Content="{x:Static language:Lang.chooseSurgeryDate}"/>
+        <ComboBox Name="Sektor" Margin="53,181,614,212" ItemsSource="{Binding Sectors}" SelectionChanged="SelectOption_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" FontSize="15"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox Name="Doktor" Margin="227,273,440,120" ItemsSource="{Binding Collection}"
+                  SelectionChanged="SelectOption_SelectionChangedDoctor" IsEnabled="false">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="Name"/>
+                                <Binding Path="Surname"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label FontSize="16" Margin="53,145,614,244" Content="{x:Static language:Lang.sector}"/>
+        <Label FontSize="16" Margin="227,237,440,152" Content="{x:Static language:Lang.doctor}"/>
+        <Viewbox Margin="396,74,72,83">
+            <Calendar Name="Kalendar" Height="171" Width="207"
+             DisplayDateStart="{x:Static sys:DateTime.Today}"
+             Background="White"
+             BorderThickness="0"></Calendar>
+        </Viewbox>
+        <Button Style="{DynamicResource MyStyleButton}" Click="ButtonClickPotvrdi" FontSize="15" Margin="644,366,46,23" Content="{x:Static language:Lang.confirm}"/>
+        <Label Name="Pacijent" FontSize="17" Margin="53,60,398,280" Content="Pacijent: Pera Peric&#xA;Br kartona: 065635&#xD;&#xA;Trajanje operacije: 4h"/>
+        <ComboBox Name="Soba" Margin="228,181,440,212" SelectionChanged="Soba_SelectionChanged" ItemsSource="{Binding CollectionRoom}" IsEnabled="false">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding RoomNumber}" FontSize="15"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label FontSize="16" Margin="228,145,440,244" Content="{x:Static language:Lang.room}"/>
+        <ComboBox x:Name="WorkPlace" Margin="53,273,614,120" ItemsSource="{Binding Workplace}" SelectionChanged="SelectOption_SelectionChangedWorkPlace">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" FontSize="15"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label FontSize="16" Margin="53,237,614,152" Content="Radno mesto"/>
+
+    </Grid>
+</Window>

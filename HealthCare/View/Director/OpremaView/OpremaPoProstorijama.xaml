@@ -1,0 +1,54 @@
+﻿<Page x:Class="HCIProjekat.OpremaView.OpremaPoProstorijama"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.OpremaView"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Oprema">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="80"/>
+        </Grid.RowDefinitions>
+        <StackPanel VerticalAlignment="Center" Grid.Row="0" Margin="20 0 0 0">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="ID opreme:" FontSize="16" Foreground="{StaticResource infoGray}"/>
+                <TextBlock Text="{Binding Inventory.Id}" Margin="10 0 0 0" FontSize="16" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Naziv opreme:" FontSize="16" Foreground="{StaticResource infoGray}"/>
+                <TextBlock Text="{Binding Inventory.EquipmentName}" Margin="10 0 0 0" FontSize="16" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Vrsta opreme:" FontSize="16" Foreground="{StaticResource infoGray}"/>
+                <TextBlock Text="{Binding Inventory.EquipmentType.Name}" Margin="10 0 0 0" FontSize="16" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Kolicina u magacinu:" FontSize="16" Foreground="{StaticResource infoGray}"/>
+                <TextBlock Text="{Binding Inventory.AmountInStorage}" Margin="10 0 0 0" FontSize="16" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <TextBlock Text="Kolicina u bolnci:" FontSize="16" Foreground="{StaticResource infoGray}"/>
+                <TextBlock Text="{Binding Inventory.AmountInHospital}" Margin="10 0 0 0" FontSize="16" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+        </StackPanel>
+
+        <TextBlock  Grid.Row="1" Foreground="{StaticResource svetloPlava}" Text="Kolicina opreme po prostorijama:" FontSize="16"  VerticalAlignment="Center" Margin="20 10"/>
+
+        <ListBox Grid.Row="2" x:Name="listaProstorija" SelectedIndex="0" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding EquipmentInRoom}"/>
+        <Button Grid.Row="3" HorizontalAlignment="Right" x:Name="movingEquipment" VerticalAlignment="Top" Margin="20" Width="200" Style="{StaticResource CustomButtonSmall}" Content="Premestanje opreme" Foreground="{StaticResource svetloPlava}" Click="movingEquipment_Click"/>
+    </Grid>
+</Page>

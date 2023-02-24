@@ -1,0 +1,337 @@
+{
+  "$type": "System.Collections.Generic.List`1[[Model.Users.Absence, HealthCare]], mscorlib",
+  "$values": 
+  [
+    {
+      "$type": "Model.Users.Absence, HealthCare",
+      "staff": {
+        "$type": "Model.Users.Doctor, HealthCare",
+        "Specialization": {
+          "$type": "System.Collections.Generic.List`1[[Model.Users.Specialization, HealthCare]], mscorlib",
+          "$values": [
+            {
+              "$type": "Model.Users.Specialization, HealthCare",
+              "Name": "Neurologija"
+            },
+            {
+              "$type": "Model.Users.Specialization, HealthCare",
+              "Name": "Neurohirurgija"
+            },
+            {
+              "$type": "Model.Users.Specialization, HealthCare",
+              "Name": "Urologija"
+            }
+          ]
+        },
+        "WorkPlace": {
+          "$type": "Model.Users.WorkPlace, HealthCare",
+          "Name": "Hirurg"
+        },
+        "WorkRoom": {
+          "$type": "Model.Rooms.Room, HealthCare",
+          "sector": null,
+          "patients": null,
+          "RoomNumber": 1,
+          "Floor": 0,
+          "RoomType": 0,
+          "RoomSector": null,
+          "RoomSize": 0.0
+        },
+        "Biography": "",
+        "PictureNumber": 1,
+        "EducationLevel": 5,
+        "Picture": "../../Resources/UserImages/1002-1.png",
+        "BirthPlace": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Kraljevo",
+          "PostNumber": 36000
+        },
+        "Residence": {
+          "$type": "Model.Users.Adress, HealthCare",
+          "City": {
+            "$type": "Model.Users.City, HealthCare",
+            "country": {
+              "$type": "Model.Users.Country, HealthCare",
+              "Name": "Srbija"
+            },
+            "Country": {
+              "$type": "Model.Users.Country, HealthCare",
+              "Name": "Srbija"
+            },
+            "Name": "Novi Sad",
+            "PostNumber": 21000
+          },
+          "Street": "Dom C",
+          "Number": 408
+        },
+        "Contact": {
+          "$type": "Model.Users.Contact, HealthCare",
+          "Number": "+381231822112",
+          "Email": "dzoni@healtcare.rs"
+        },
+        "JMBG": "1234567890988",
+        "Name": "Nikola",
+        "UserType": 1,
+        "Surname": "Kolovic",
+        "Password": "",
+        "Id": 1002,
+        "Gender": 0,
+        "BirthDate": "1998-03-04T00:00:00"
+      },
+      "Id": 1,
+      "AbsenceType": 3,
+      "Reason": "Bahami",
+      "Approved": true,
+      "StartDate": "2020-07-16T00:00:00",
+      "EndDate": "2020-07-30T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Absence, HealthCare",
+      "staff": {
+        "$type": "Model.Users.Doctor, HealthCare",
+        "Specialization": {
+          "$type": "System.Collections.Generic.List`1[[Model.Users.Specialization, HealthCare]], mscorlib",
+          "$values": [
+            {
+              "$type": "Model.Users.Specialization, HealthCare",
+              "Name": "Neurologija"
+            },
+            {
+              "$type": "Model.Users.Specialization, HealthCare",
+              "Name": "Neurohirurgija"
+            },
+            {
+              "$type": "Model.Users.Specialization, HealthCare",
+              "Name": "Urologija"
+            }
+          ]
+        },
+        "WorkPlace": {
+          "$type": "Model.Users.WorkPlace, HealthCare",
+          "Name": "Hirurg"
+        },
+        "WorkRoom": {
+          "$type": "Model.Rooms.Room, HealthCare",
+          "sector": null,
+          "patients": null,
+          "RoomNumber": 1,
+          "Floor": 0,
+          "RoomType": 0,
+          "RoomSector": null,
+          "RoomSize": 0.0
+        },
+        "Biography": "",
+        "PictureNumber": 1,
+        "EducationLevel": 5,
+        "Picture": "../../Resources/UserImages/1002-1.png",
+        "BirthPlace": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Kraljevo",
+          "PostNumber": 36000
+        },
+        "Residence": {
+          "$type": "Model.Users.Adress, HealthCare",
+          "City": {
+            "$type": "Model.Users.City, HealthCare",
+            "country": {
+              "$type": "Model.Users.Country, HealthCare",
+              "Name": "Srbija"
+            },
+            "Country": {
+              "$type": "Model.Users.Country, HealthCare",
+              "Name": "Srbija"
+            },
+            "Name": "Novi Sad",
+            "PostNumber": 21000
+          },
+          "Street": "Dom C",
+          "Number": 408
+        },
+        "Contact": {
+          "$type": "Model.Users.Contact, HealthCare",
+          "Number": "+381231822112",
+          "Email": "dzoni@healtcare.rs"
+        },
+        "JMBG": "1234567890988",
+        "Name": "Nikola",
+        "UserType": 1,
+        "Surname": "Kolovic",
+        "Password": "",
+        "Id": 1002,
+        "Gender": 0,
+        "BirthDate": "1998-03-04T00:00:00"
+      },
+      "Id": 2,
+      "AbsenceType": 0,
+      "Reason": "Konferencija",
+      "Approved": true,
+      "StartDate": "2020-07-31T00:00:00",
+      "EndDate": "2020-08-02T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Absence, HealthCare",
+      "staff": {
+        "$type": "Model.Users.Doctor, HealthCare",
+        "Specialization": {
+          "$type": "System.Collections.Generic.List`1[[Model.Users.Specialization, HealthCare]], mscorlib",
+          "$values": [
+            {
+              "$type": "Model.Users.Specialization, HealthCare",
+              "Name": "Neurologija"
+            },
+            {
+              "$type": "Model.Users.Specialization, HealthCare",
+              "Name": "Neurohirurgija"
+            },
+            {
+              "$type": "Model.Users.Specialization, HealthCare",
+              "Name": "Urologija"
+            }
+          ]
+        },
+        "WorkPlace": {
+          "$type": "Model.Users.WorkPlace, HealthCare",
+          "Name": "Hirurg"
+        },
+        "WorkRoom": {
+          "$type": "Model.Rooms.Room, HealthCare",
+          "sector": null,
+          "patients": null,
+          "RoomNumber": 1,
+          "Floor": 0,
+          "RoomType": 0,
+          "RoomSector": null,
+          "RoomSize": 0.0
+        },
+        "Biography": "",
+        "PictureNumber": 1,
+        "EducationLevel": 5,
+        "Picture": "../../Resources/UserImages/1002-1.png",
+        "BirthPlace": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Kraljevo",
+          "PostNumber": 36000
+        },
+        "Residence": {
+          "$type": "Model.Users.Adress, HealthCare",
+          "City": {
+            "$type": "Model.Users.City, HealthCare",
+            "country": {
+              "$type": "Model.Users.Country, HealthCare",
+              "Name": "Srbija"
+            },
+            "Country": {
+              "$type": "Model.Users.Country, HealthCare",
+              "Name": "Srbija"
+            },
+            "Name": "Novi Sad",
+            "PostNumber": 21000
+          },
+          "Street": "Dom C",
+          "Number": 408
+        },
+        "Contact": {
+          "$type": "Model.Users.Contact, HealthCare",
+          "Number": "+381231822112",
+          "Email": "dzoni@healtcare.rs"
+        },
+        "JMBG": "1234567890988",
+        "Name": "Nikola",
+        "UserType": 1,
+        "Surname": "Kolovic",
+        "Password": "",
+        "Id": 1002,
+        "Gender": 0,
+        "BirthDate": "1998-03-04T00:00:00"
+      },
+      "Id": 3,
+      "AbsenceType": 1,
+      "Reason": "Poslovne obaveze",
+      "Approved": true,
+      "StartDate": "2020-08-03T00:00:00",
+      "EndDate": "2020-08-07T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Absence, HealthCare",
+      "staff": {
+        "$type": "Model.Users.Secretary, HealthCare",
+        "PictureNumber": 1,
+        "EducationLevel": 6,
+        "Picture": "../../Resources/UserImages/1004-1.png",
+        "BirthPlace": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Leskovac",
+          "PostNumber": 16000
+        },
+        "Residence": {
+          "$type": "Model.Users.Adress, HealthCare",
+          "City": {
+            "$type": "Model.Users.City, HealthCare",
+            "country": {
+              "$type": "Model.Users.Country, HealthCare",
+              "Name": "Srbija"
+            },
+            "Country": {
+              "$type": "Model.Users.Country, HealthCare",
+              "Name": "Srbija"
+            },
+            "Name": "Novi Sad",
+            "PostNumber": 21000
+          },
+          "Street": "Davida Ratkovica",
+          "Number": 2
+        },
+        "Contact": {
+          "$type": "Model.Users.Contact, HealthCare",
+          "Number": "+381823812812",
+          "Email": "jelena@healtcare.rs"
+        },
+        "JMBG": "2345678901232",
+        "Name": "Jelena",
+        "UserType": 2,
+        "Surname": "Petkovic",
+        "Password": "",
+        "Id": 1004,
+        "Gender": 1,
+        "BirthDate": "1998-01-30T00:00:00"
+      },
+      "Id": 4,
+      "AbsenceType": 0,
+      "Reason": "",
+      "Approved": false,
+      "StartDate": "2020-07-02T00:00:00",
+      "EndDate": "2020-07-06T00:00:00"
+    }
+  ]}

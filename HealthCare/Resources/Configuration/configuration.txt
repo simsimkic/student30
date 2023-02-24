@@ -1,0 +1,13 @@
+﻿MaxDaysForSpecialistExamination=30;
+MaxDaysForControlExamination=14;
+MaxDaysForControlSpecialistExamination=60;
+MaxDaysForHospitalTreatment=14;
+MaxTimePeriodToMakeAppointment=100;
+
+MinDaysForRenovationStart=2;
+MinDrugAmountForNotification=30;
+
+PercentOfMatchingForPotentialDiagnosis=50;
+
+DefaultAppointmentExaminationDuration=30;
+DefaultAppointmentSurgeryDuration=30;

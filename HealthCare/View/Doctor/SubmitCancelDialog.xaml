@@ -1,0 +1,45 @@
+﻿<Window x:Class="HealthCareClinic.View.Doctor.SubmitCancelDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:HealthCareClinic.View.Doctor"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Icon="../../View/Doctor/ViewResources/Images/hospitalicon.ico"
+        SizeToContent="WidthAndHeight"
+        Title="HealthCare Clinic">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock TextAlignment="Center" Margin="10 15 10 0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Text="{Binding Message}" MinHeight="70" MinWidth="300"/>
+
+        <DockPanel Grid.Row="1" HorizontalAlignment="Center" Margin="0,0,0,15" >
+            <Button Style="{StaticResource buttonStyle }" VerticalAlignment="Center" Margin="0 0 15 0" Name="btnClickOK" Click="btnClickOK_Click">
+                <DockPanel>
+                    <materialDesign:PackIcon Kind="Tick" VerticalAlignment="Center"/>
+                    <ContentControl Focusable="False">Potvrdi</ContentControl>
+                </DockPanel>
+            </Button>
+
+            <Button Style="{StaticResource buttonStyle }" VerticalAlignment="Center" Margin="0 0 5 0" Name="btnClickReject" Click="btnClickReject_Click">
+                <DockPanel>
+                    <materialDesign:PackIcon Kind="Cancel" VerticalAlignment="Center"/>
+                    <ContentControl Focusable="False">Odbaci</ContentControl>
+                </DockPanel>
+            </Button>
+        </DockPanel>
+    </Grid>
+</Window>

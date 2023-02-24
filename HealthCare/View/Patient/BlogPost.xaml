@@ -1,0 +1,23 @@
+﻿<Page x:Class="HealthCare.View.Patient.BlogPost"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthCare"
+      mc:Ignorable="d" 
+      d:DesignHeight="2000" d:DesignWidth="1280"
+      Title="BlogPost">
+
+    <Page.Resources>
+        <ResourceDictionary Source="/View/Patient/ThemeResourceDictionary.xaml"/>
+    </Page.Resources>
+    
+    <StackPanel Margin="300,50,300,100" DataContext="{Binding BlogPostData}">
+        <Image Source="{Binding Image, Converter={StaticResource PathConverter}}" Width="400"/>
+        <StackPanel HorizontalAlignment="Center" Width="Auto">
+            <TextBlock Text="{Binding Title}" FontSize="30" HorizontalAlignment="Center" Margin="0,20,0,0"/>
+            <TextBlock Text="{Binding Date}" FontSize="16"/>
+        </StackPanel>
+        <TextBlock Text="{Binding Text}" FontSize="16" TextWrapping="Wrap" Height="Auto" Margin="0,30,0,0"/>
+    </StackPanel>
+</Page>

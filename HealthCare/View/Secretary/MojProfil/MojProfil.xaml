@@ -1,0 +1,36 @@
+﻿<Window x:Class="Sekretar.MojProfil.MojProfil"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterOwner"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sekretar.MojProfil"
+        mc:Ignorable="d"
+        Style="{DynamicResource MyStyle}"
+        xmlns:language="clr-namespace:Secretary.Properties.Langs"
+        Title="{x:Static language:Lang.profil}" Height="450" Width="800">
+    <Grid Height="420" Margin="0,0,-0.4,0" VerticalAlignment="Top" HorizontalAlignment="Right" Width="794">
+        <Button Style="{DynamicResource MyStyleButton}" FontSize="15" Name="IzmeniProfilButton" Click="ButtonClickIzmeniProfil" Margin="599,284,42,92" Content="{x:Static language:Lang.editprofile}"/>
+        <Button Style="{DynamicResource MyStyleButton}" FontSize="15" Name="Zahtevi" Click="ButtonClickZahtevi" Margin="599,217,41,159" Content="{x:Static language:Lang.abscenceRequests}"/>
+        <Label Content="{x:Static language:Lang.name}" Margin="43,43,621.6,351" />
+        <Label Content="{x:Static language:Lang.surname}" Margin="43,69,621.6,325" />
+        <Label Content="{x:Static language:Lang.birhdate}" Margin="43,95,621.6,299" />
+        <Label Content="{x:Static language:Lang.address}" Margin="43,121,621.6,273" />
+        <Label Content="{x:Static language:Lang.phonenumber}" Margin="43,147,621.6,250" />
+        <Label Content="{x:Static language:Lang.biography}" Margin="43,186,621.6,208" />
+        <Label Name="Ime" Content="Jelena" Margin="231,43,297.6,351" FontWeight="Bold"/>
+        <Label Name="Prezime" Content="Petkovic" Margin="231,69,306.6,325" FontWeight="Bold"/>
+        <Label Name="DatumRodjenja" Content="30.01.1998" Margin="231,95,306.6,299" FontWeight="Bold"/>
+        <Label Name="Adresa" Content="Danila Kisa 11, 21000 Novi Sad" Margin="231,121,306.6,273" FontWeight="Bold"/>
+        <Label Name="Telefon" Content="0601234567" Margin="231,147,306.6,250" FontWeight="Bold"/>
+        <TextBox
+            x:Name="Biografija"
+            IsReadOnly="True"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Visible" Margin="43,217,293.6,73" Text="Ovde stoji neka biografija."/>
+        <Button Style="{DynamicResource MyStyleButton}" FontSize="15" Name="Pocetna" Click="ButtonClickPocetna" Margin="43,366,639.6,23" Content="{x:Static language:Lang.back}"/>
+        <Image Name="Slika" Source="../img/proflePic.jpg" HorizontalAlignment="Left" Height="145" Margin="598,43,0,0" VerticalAlignment="Top" Width="154" OpacityMask="Black"/>
+    </Grid>
+</Window>

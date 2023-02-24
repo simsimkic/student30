@@ -1,0 +1,48 @@
+﻿<Page x:Class="HCIProjekat.View.ObavestenjeView.Obavestenje"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.View.ObavestenjeView"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Obavestenja">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="ListBoxItem">
+                <EventSetter Event="PreviewMouseDown" Handler="ListBoxItem_PreviewMouseDown" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListBoxItem">
+                            <Border Name="ItemBorder" BorderBrush="LightGray" BorderThickness="0 0 0 1" Margin="1" Background="Transparent">
+                                <ContentPresenter />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="ItemBorder" Property="Background" Value="{StaticResource rowSelected}" />
+                                    <Setter Property="ToolTipService.ToolTip" Value="Kliknite jos jednom za prikaz celog obavestenja"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+        
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+
+        <ListBox Grid.Row="1" x:Name="listaObavestenja" SelectedIndex="0" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding Notifications}"/>
+
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Button x:Name="details"  Visibility="Collapsed" Style="{StaticResource DetailButtonStyle}" Click="details_Click"/>
+            <Button Name="addNotification" Style="{StaticResource AddButtonStyle}" Click="addNotification_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>
+

@@ -1,0 +1,74 @@
+﻿<Window x:Class="Sekretar.Sale.PremestanjeOperacije"
+        Style="{DynamicResource MyStyle}"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:language="clr-namespace:Secretary.Properties.Langs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sekretar.Sale"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="{x:Static language:Lang.surgeryMoving}" Height="450" Width="800">
+    <Grid HorizontalAlignment="Right" Margin="0,0,-0.4,0" Width="794" Height="420" VerticalAlignment="Top">
+        <Button  Style="{DynamicResource MyStyleButton}" FontSize="15" Click="ButtonClickOdustani" Margin="43,366,639.6,23" Content="{x:Static language:Lang.cancel}"/>
+        <Label FontSize="15" Margin="449,29,133.6,360" Content="{x:Static language:Lang.chooseNewOperationDate}"/>
+        <Viewbox Margin="396,74,72,83">
+            <Calendar Name="Kalendar" Height="171" Width="207"
+             Background="White"
+              DisplayDateStart="{x:Static sys:DateTime.Today}"
+             BorderThickness="1"
+             ></Calendar>
+        </Viewbox>
+        <Button  Style="{DynamicResource MyStyleButton}" FontSize="15" Click="ButtonClickPotvrdi" Margin="643,366,46,23" Content="{x:Static language:Lang.confirm}"/>
+        <Label Name="Pacijent" FontSize="17" Margin="139,60,441,302" Content=""/>
+        <Label FontSize="17" Margin="53,60,660,325" Content="{x:Static language:Lang.patient}"/>
+        <Label FontSize="17" Margin="54,83,655,302" Content="{x:Static language:Lang.duration}"/>
+        <Label Name="DoktorLabela" FontSize="16" Margin="-193,123,862,266" Content="Doktor"/>
+        <Label Name="VremeLabela" FontSize="16" Margin="-192,145,862,244" Content="Doktor"/>
+        <Label x:Name="DatumStari" FontSize="16" Margin="-192,145,862.4,244" Content="Doktor"/>
+        <Label x:Name="SobaStara" FontSize="16" Margin="-192,145,862.4,244" Content="Doktor"/>
+        <Label x:Name="SektorStarei" FontSize="16" Margin="-192,145,862.4,244" Content="Doktor"/>
+        <ComboBox x:Name="Sektor" Margin="53,181,614.4,212" ItemsSource="{Binding Sectors}" SelectionChanged="SelectOption_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" FontSize="15"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox x:Name="Doktor" Margin="227,273,440.4,120" ItemsSource="{Binding Collection}"
+            SelectionChanged="SelectOption_SelectionChangedDoctor" IsEnabled="false">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="Name"/>
+                                <Binding Path="Surname"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label FontSize="16" Margin="53,145,614.4,244" Content="{x:Static language:Lang.sector}"/>
+        <Label FontSize="16" Margin="227,237,440.4,152" Content="{x:Static language:Lang.doctor}"/>
+        <ComboBox x:Name="Soba" Margin="228,181,440.4,212" SelectionChanged="Soba_SelectionChanged" ItemsSource="{Binding CollectionRoom}" IsEnabled="false">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding RoomNumber}" FontSize="15"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label FontSize="16" Margin="228,145,440.4,244" Content="{x:Static language:Lang.room}"/>
+        <ComboBox x:Name="WorkPlace" Margin="53,273,614.4,120" ItemsSource="{Binding Workplace}" SelectionChanged="SelectOption_SelectionChangedWorkPlace">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" FontSize="15"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <Label FontSize="16" Margin="53,237,614.4,152" Content="Radno mesto"/>
+
+    </Grid>
+</Window>

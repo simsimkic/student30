@@ -1,0 +1,27 @@
+﻿<Window x:Class="Sekretar.Zahtevi.ZahteviDetaljnije"
+        ResizeMode="NoResize"
+        Closing="Window_close"
+        xmlns:language="clr-namespace:Secretary.Properties.Langs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sekretar.Zahtevi"
+        mc:Ignorable="d"
+        Style="{DynamicResource MyStyle}"
+        Title="{x:Static language:Lang.moreInfo}" Height="393.115" Width="474.944">
+    <Grid HorizontalAlignment="Right" Margin="0,0,-0.2,0" Width="469" Height="363" VerticalAlignment="Top">
+        <Label  FontSize="15" Margin="23,21,372.8,311.2" Content="{x:Static language:Lang.patient}"/>
+        <Label FontWeight="Bold" Name="Pacijent" FontSize="15" Margin="96,21,275,311" Content="Pera Peric"/>
+        <Label FontSize="15" Margin="23,52,373,280" Content="{x:Static language:Lang.sector}"/>
+        <Label FontWeight="Bold" FontSize="15" Name="Sektor" Margin="96,52,255,280" Content="dr Jova Jovic"/>
+        <Label FontSize="15" Margin="23,111,311,221" Content="{x:Static language:Lang.aboutThePatient}"/>
+        <TextBox
+            Name="Note"
+            IsReadOnly="True"
+            TextWrapping="Wrap"
+            AcceptsReturn="True"
+            VerticalScrollBarVisibility="Visible" Margin="23,147,29.8,40.2"
+            Text="This TextBox will allow the user to enter multiple lines of text. When the RETURN key is pressed, or when typed text reaches the edge of the text box, a new line is automatical."/>
+    </Grid>
+</Window>

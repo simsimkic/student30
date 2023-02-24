@@ -1,0 +1,246 @@
+﻿<Window x:Class="ResolveView.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthCare"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        Title="HealthCare" Height="800" Width="1280">
+
+    <Window.Resources>
+        <ResourceDictionary Source="/View/Patient/ThemeResourceDictionary.xaml"/>
+    </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="40" ResizeBorderThickness="10"/>
+    </WindowChrome.WindowChrome>
+
+    <Border Background="White" BorderBrush="Black" BorderThickness="1"  MinHeight="800" MinWidth="1280">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Border Grid.Row="0" Grid.RowSpan="2" Background="White" BorderBrush="LightGray" BorderThickness="1"/>
+
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <Button x:Name="GoBackButton" Grid.Column="0" Margin="10,10,0,0" Style="{DynamicResource WindowButton}" Click="GoBackButton_Click">
+                    <fa:ImageAwesome Icon="ArrowLeft" Style="{StaticResource WindowIcon}" Width="20"/>
+                </Button>
+                <StackPanel Grid.Column="2" Orientation="Horizontal">
+                    <Button Name="MinimizeButton" Margin="0,10,10,0" Style="{DynamicResource WindowButton}">
+                        <fa:ImageAwesome Icon="WindowMinimize" Style="{StaticResource WindowIcon}"  Width="15"/>
+                    </Button>
+                    <Button Name="MaximizeButton" Margin="0,10,10,0" Style="{DynamicResource WindowButton}">
+                        <fa:ImageAwesome Icon="WindowMaximize" Style="{StaticResource WindowIcon}" Width="15"/>
+                    </Button>
+                    <Button Name="CloseButton" Margin="0,10,10,0" Style="{DynamicResource WindowButton}">
+                        <fa:ImageAwesome Icon="Times" Style="{StaticResource WindowIcon}" Width="15"/>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <RadioButton Grid.Column="0" FontSize="28" Margin="100,15,100,15" Click="HomePage_Click" Content="HealthCare">
+                    <RadioButton.Style>
+                        <Style BasedOn="{StaticResource LinkRadioButton}" TargetType="RadioButton">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=MainWindowFrame, Path=Source}" Value="View/Patient/HomePage.xaml">
+                                    <Setter Property="IsChecked" Value="True"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </RadioButton.Style>
+                </RadioButton>
+
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+
+                    <Menu Margin="0,0,30,0" Background="Transparent" WindowChrome.IsHitTestVisibleInChrome="True"  HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <MenuItem Header="Usluge" Template="{StaticResource MenuTop}">
+                            <MenuItem Header="Laboratorija" Template="{StaticResource MenuSub}" />
+                            <MenuItem Header="Radiologija" Template="{StaticResource MenuSub}" />
+                            <MenuItem Header="Interna medicina" Template="{StaticResource MenuSub}" />
+                            <MenuItem Header="Ginekologija" Template="{StaticResource MenuSub}" />
+                            <MenuItem Header="Urologija" Template="{StaticResource MenuSub}" />
+                            <MenuItem Header="Hirurgija" Template="{StaticResource MenuSub}" />
+                            <MenuItem Header="Neurohirurgija" Template="{StaticResource MenuSub}" />
+                            <MenuItem Header="Pedijatrija" Template="{StaticResource MenuSub}" />
+                            <MenuItem Header="Ortopedija" Template="{StaticResource MenuSub}" />
+                            <MenuItem Header="ORL - Uho, grlo, nos" Template="{StaticResource MenuSub}" />
+                            <MenuItem Header="Terapijske usluge" Template="{StaticResource MenuSub}" />
+                        </MenuItem>
+                    </Menu>
+
+                    <RadioButton FontSize="20" Margin="0,0,30,0" Click="Doctors_Click" Content="Lekari">
+                        <RadioButton.Style>
+                            <Style BasedOn="{StaticResource LinkRadioButton}" TargetType="RadioButton">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=MainWindowFrame, Path=Source}" Value="View/Patient/Doctors.xaml">
+                                        <Setter Property="IsChecked" Value="True"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </RadioButton.Style>
+                    </RadioButton>
+
+                    <RadioButton FontSize="20" Margin="0,0,30,0" Click="FAQ_Click" Content="Česta pitanja">
+                        <RadioButton.Style>
+                            <Style BasedOn="{StaticResource LinkRadioButton}" TargetType="RadioButton">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=MainWindowFrame, Path=Source}" Value="View/Patient/FrequentlyAskedQuestions.xaml">
+                                        <Setter Property="IsChecked" Value="True"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </RadioButton.Style>
+                    </RadioButton>
+
+                    <RadioButton FontSize="20" Margin="0,0,30,0" Click="AskQuestion_Click" Content="Pitaj lekara">
+                        <RadioButton.Style>
+                            <Style BasedOn="{StaticResource LinkRadioButton}" TargetType="RadioButton">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=MainWindowFrame, Path=Source}" Value="View/Patient/AskQuestion.xaml">
+                                        <Setter Property="IsChecked" Value="True"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </RadioButton.Style>
+                    </RadioButton>
+
+                    <RadioButton FontSize="20" Margin="0,0,30,0" Click="ScheduleAppointment_Click" Content="Zakaži pregled">
+                        <RadioButton.Style>
+                            <Style BasedOn="{StaticResource LinkRadioButton}" TargetType="RadioButton">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=MainWindowFrame, Path=Source}" Value="View/Patient/MakeAppointment.xaml">
+                                        <Setter Property="IsChecked" Value="True"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ElementName=MainWindowFrame, Path=Source}" Value="View/Patient/ChooseAppointment.xaml">
+                                        <Setter Property="IsChecked" Value="True"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding ElementName=MainWindowFrame, Path=Source}" Value="View/Patient/RecommendAppointment.xaml">
+                                        <Setter Property="IsChecked" Value="True"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </RadioButton.Style>
+                    </RadioButton>
+
+                    <RadioButton FontSize="20" Margin="0,0,30,0" Click="Blog_Click" Content="Blog">
+                        <RadioButton.Style>
+                            <Style BasedOn="{StaticResource LinkRadioButton}" TargetType="RadioButton">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=MainWindowFrame, Path=Source}" Value="View/Patient/Blog.xaml">
+                                        <Setter Property="IsChecked" Value="True"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </RadioButton.Style>
+                    </RadioButton>
+
+                </StackPanel>
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Margin="0,0,60,5" VerticalAlignment="Bottom">
+                    <StackPanel x:Name="userMenu" Visibility="{Binding CurrentUser, Converter={StaticResource NullVisibilityConverter}}">
+                        
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="NotificationButton" Style="{DynamicResource WindowButton}" Click="Notification_Click" Margin="5,0,0,5">
+                                <fa:ImageAwesome Icon="Bell" Style="{StaticResource WindowIcon}" Width="20"/>
+                            </Button>
+                            <Menu Background="Transparent" WindowChrome.IsHitTestVisibleInChrome="True"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="5,0,0,5">
+                                <MenuItem Template="{StaticResource MenuTopUser}">
+                                    <MenuItem Header="Moj profil" Template="{StaticResource MenuSub}" Click="EditProfile_Click" />
+                                    <MenuItem Header="Zakazani termini" Template="{StaticResource MenuSub}" Click="Appointments_Click"/>
+                                    <MenuItem Header="Moja terapija" Template="{StaticResource MenuSub}" Click="MyTherapy_Click"/>
+                                    <!--<MenuItem Header="Zdravstveni karton" Template="{StaticResource MenuSub}" />-->
+                                    <MenuItem Header="Odjavite se" Template="{StaticResource MenuSub}" Click="Logout_Click" />
+                                </MenuItem>
+                            </Menu>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <StackPanel.Style>
+                            <Style TargetType="{x:Type StackPanel}">
+                                <Setter Property="Visibility" Value="Visible"/>
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Visibility, ElementName=userMenu}" Value="Visible">
+                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </StackPanel.Style>
+                        <StackPanel Orientation="Horizontal">
+                            <fa:ImageAwesome Icon="SignIn" Width="20"/>
+                            <Button Style="{StaticResource LinkButton}" Margin="5,0,0,5" FontSize="20" Click="Login_Click">prijavi se</Button>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <Border Grid.Row="2">
+                <ScrollViewer x:Name="scrollViewer" x:FieldModifier="public">
+                    <StackPanel>
+
+                        <Frame x:Name="MainWindowFrame" NavigationUIVisibility="Hidden"/>
+
+                        <Border BorderBrush="LightGray" BorderThickness="1" Background="White"  VerticalAlignment="Bottom" Height="130">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <StackPanel Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Button Style="{StaticResource LinkButton}" Click="ScheduleAppointment_Click" FontSize="16">Zakažite pregled</Button>
+                                    <Button Style="{StaticResource LinkButton}" Click="FAQ_Click" FontSize="16">Česta pitanja</Button>
+                                </StackPanel>
+                                <StackPanel Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <Button Style="{StaticResource LinkButton}" FontSize="16">Iskustva naših pacijenata</Button>
+                                    <Button Style="{StaticResource LinkButton}" FontSize="16">Gde se nalazimo?</Button>
+                                    <Button Style="{StaticResource LinkButton}" FontSize="16">Galerija</Button>
+                                </StackPanel>
+                                <StackPanel Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock FontSize="16">Kontaktirajte nas</TextBlock>
+                                    <TextBlock>Svakim danom 0/24 dostupni</TextBlock>
+                                    <TextBlock>Tel: +381 11 1111 111</TextBlock>
+                                    <TextBlock>Mobile: +381 11 111 1111</TextBlock>
+                                    <TextBlock>E-mail: office@healthcare.rs</TextBlock>
+                                </StackPanel>
+                                <StackPanel Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock FontSize="18">Povežite se sa nama</TextBlock>
+                                    <StackPanel Orientation="Horizontal">
+                                        <fa:ImageAwesome Icon="FacebookOfficial" Width="15"/>
+                                        <Button Style="{StaticResource LinkButton}" FontSize="16" Margin="5,0,0,0">Facebook</Button>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal">
+                                        <fa:ImageAwesome Icon="Instagram" Width="15"/>
+                                        <Button Style="{StaticResource LinkButton}" FontSize="16" Margin="5,0,0,0">Instagram</Button>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </StackPanel>
+                </ScrollViewer>
+            </Border>
+
+        </Grid>
+    </Border>
+
+</Window>

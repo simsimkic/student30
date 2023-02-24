@@ -1,0 +1,89 @@
+﻿<Page x:Class="HCIProjekat.ZaposleniView.OdbijanjeZahteva"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.ZaposleniView"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Zaposleni">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="85"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Margin="20 10 0 0">
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+                <Rectangle HorizontalAlignment="Left" Margin="10 0 0 0" Grid.Column="0" RadiusX="10" RadiusY="10"
+                Width="100"
+                Height="100">
+                    <Rectangle.Fill>
+                        <ImageBrush Stretch="UniformToFill" ImageSource="{Binding Path=Employee.Picture}"/>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="ID zaposlenog:" FontSize="16" Foreground="{StaticResource infoGray}"/>
+                        <TextBlock Text="{Binding Path=Employee.Id}" Margin="10 0 0 0" FontSize="16" Foreground="{StaticResource svetloPlava}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Ime:" FontSize="16" Foreground="{StaticResource infoGray}"/>
+                        <TextBlock Text="{Binding Path=Employee.EmployeeName}" Margin="10 0 0 0" FontSize="16" Foreground="{StaticResource svetloPlava}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Prezime:" FontSize="16" Foreground="{StaticResource infoGray}"/>
+                        <TextBlock Text="{Binding Path=Employee.Surname}" Margin="10 0 0 0" FontSize="16" Foreground="{StaticResource svetloPlava}"/>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Radno mesto:" FontSize="16" Foreground="{StaticResource infoGray}"/>
+                        <TextBlock Text="{Binding Path=Employee.WorkPlace}" Margin="10 0 0 0" FontSize="16" Foreground="{StaticResource svetloPlava}"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+            <StackPanel Margin="0 30 0 0" HorizontalAlignment="Left" Orientation="Horizontal">
+                <TextBlock Text="Datum odlaska na odsustvo: " FontSize="16" Foreground="{StaticResource infoGray}"/>
+                <TextBlock FontSize="16" Text="{Binding Path=Employee.DateStartAbsence, StringFormat=dd.MM.yyyy.}" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <TextBlock Text="Datum povratka sa odsustva: " FontSize="16" Foreground="{StaticResource infoGray}"/>
+                <TextBlock FontSize="16" Text="{Binding Path=Employee.DateEndAbsence, StringFormat=dd.MM.yyyy.}" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                <TextBlock Text="Vrsta odsustva: " FontSize="16" Foreground="{StaticResource infoGray}"/>
+                <TextBlock FontSize="16" Text="{Binding Path=Employee.AbsenceKind}" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+        </StackPanel>
+        <TextBlock Grid.Row="1" Foreground="{StaticResource svetloPlava}" Text="Obrazlozenje odbijanja:" FontSize="16"  VerticalAlignment="Center" Margin="20 10"/>
+        <Grid Grid.Row="2">
+            <TextBox x:Name="obrazlozenje" Text="{Binding Reason}" TextWrapping="Wrap" VerticalContentAlignment="Top" FontSize="14" AcceptsReturn="True" Margin="20 0"/>
+            <TextBlock Text="Unestite obrazlozenje odbijanja zahteva" VerticalAlignment="Top" FontSize="16" Margin="20 0">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=obrazlozenje}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+        <Button Grid.Row="3" x:Name="rejectAbsence" VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Potvrdi" Foreground="{StaticResource svetloPlava}" Click="rejectAbsence_Click"/>
+        <Grid x:Name="dialog" Grid.RowSpan="4" Visibility="Collapsed"/>
+    </Grid>
+</Page>

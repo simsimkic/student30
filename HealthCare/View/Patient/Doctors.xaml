@@ -1,0 +1,74 @@
+﻿
+    
+    <Page x:Class="ResolveView.Doctors"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthCare"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d" 
+      d:DesignHeight="2000" d:DesignWidth="1280"
+      Title="Doctors">
+
+    <Page.Resources>
+        <ResourceDictionary Source="/View/Patient/ThemeResourceDictionary.xaml"/>
+    </Page.Resources>
+    
+    <StackPanel Margin="100,50,100,50" MinHeight="600">
+        <TextBlock FontSize="30" HorizontalAlignment="Center">Naš tim lekara</TextBlock>
+        <Grid Margin="20,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <TextBox Grid.Column="0" x:Name="DoctorSearch" VerticalContentAlignment="Center" FontSize="16" Height="30" Width="250" VerticalAlignment="Center"/>
+                <TextBlock Text="Pretraga po imenu" FontSize="16">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=DoctorSearch}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <Button Grid.Column="1" Style="{StaticResource WindowButton}" Click="SearchDoctor_Click" Width="30" Margin="10,0,0,0">
+                <fa:ImageAwesome Style="{StaticResource WindowIcon}" Icon="Search"/>
+            </Button>
+        </Grid>
+        <ComboBox x:Name="comboBox" ItemsSource="{Binding WorkPlaceCollection}" SelectedIndex="0" DisplayMemberPath="Name" HorizontalAlignment="Left" FontSize="16" Width="200" Margin="20,10,0,40"/>
+        <TextBlock FontSize="16" Margin="20,0,0,0">Klikom na lekara možete videti detalje njihove biografije</TextBlock>
+        <ItemsControl ItemsSource="{Binding SearchCollection}" Margin="0,0,0,0">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Style="{StaticResource BasicButton}" Click="PresentDoctor_Click" Margin="20">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Top" Source="{Binding Picture, Converter={StaticResource PathConverter}}" Width="220"/>
+                            <StackPanel DockPanel.Dock="Bottom" Background="LightBlue">
+                                <TextBlock FontSize="20" HorizontalAlignment="Center">
+                                    <TextBlock.Text>
+                                        <MultiBinding Converter="{StaticResource StringConcatenate}">
+                                            <Binding Path="Name"/>
+                                            <Binding Path="Surname"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <TextBlock FontSize="14" Text="{Binding WorkPlace.Name}" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+                            </StackPanel>
+                        </DockPanel>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+        
+    </StackPanel>
+</Page>

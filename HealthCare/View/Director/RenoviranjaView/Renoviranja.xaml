@@ -1,0 +1,49 @@
+﻿<Page x:Class="HCIProjekat.RenoviranjaView.Renoviranja"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.RenoviranjaView"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Renoviranja">
+    
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+            <Button Grid.Row="0" x:Name="Filter" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Filter_Click" ToolTip="Filter">
+                <materialDesign:PackIcon Kind="Filter" Foreground="{StaticResource tamnoPlava}" HorizontalAlignment="Right" Margin="0 0 10 0" Width="35" Height="35"/>
+            </Button>
+        <Button Grid.Row="1" VerticalAlignment="Top" Name="disableFilter" Visibility="Collapsed" Content="Ponisti filtere [x]" HorizontalAlignment="Right" Click="disableFilter_Click" Margin="20 0" FontSize="15" Foreground="{StaticResource infoGray}"/>
+
+        <Grid Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ListBox Grid.Row="0" x:Name="listaRenoviranja" SelectedIndex="0" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding Renovations}" SelectionChanged="listaRenoviranja_SelectionChanged"/>
+                <TextBox Grid.Row="1" x:Name="details" Text= "{Binding ElementName=listaRenoviranja, Path=SelectedItem.RenovationDescription}" VerticalContentAlignment="Top" Height="110" Visibility="Collapsed" TextWrapping="Wrap" Margin="20 10" IsReadOnly="True"/>
+            </Grid>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button x:Name="deleteRenovation" Visibility="Collapsed" Style="{StaticResource DeleteButtonStyle}" Click="deleteRenovation_Click"/>
+                <Button Name="addRenovation" Style="{StaticResource AddButtonStyle}" Click="addRenovation_Click"/>
+            </StackPanel>
+        </Grid>
+        <Grid x:Name="dialog" Grid.RowSpan="3" Visibility="Collapsed"/>
+    </Grid>
+</Page>
+

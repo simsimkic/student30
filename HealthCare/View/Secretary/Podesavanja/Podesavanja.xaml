@@ -1,0 +1,27 @@
+﻿<Window x:Class="Sekretar.Podesavanja.Podesavanja"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sekretar.Podesavanja"
+        Closing="Window_closing"
+        ResizeMode="NoResize"
+        mc:Ignorable="d"
+        Style="{DynamicResource MyStyle}"
+        xmlns:language="clr-namespace:Secretary.Properties.Langs"
+        Title="{x:Static language:Lang.settings}" Height="275" Width="443">
+
+    <Grid HorizontalAlignment="Right" Margin="0,0,-0.2,-4.4" Width="437" Height="250" VerticalAlignment="Top">
+        <Label FontSize="17" Margin="54,26,285,185" Content="{x:Static language:Lang.lang}"/>
+        <Button Name="btnCancel" IsEnabled="False" IsCancel="true" Margin="436,0,0,0" ></Button>
+        <RadioButton Style="{DynamicResource RadioDugmeStyle}" Name="Srpski" GroupName="Jezik" FontSize="15" Content="{x:Static language:Lang.sr}" Checked="SrpskiChecked" Margin="54,114,295,116"/>
+        <RadioButton Style="{DynamicResource RadioDugmeStyle}" Name="Engleski"  GroupName="Jezik" FontSize="15" Content="{x:Static language:Lang.en}" Checked="EngleskiChecked" Margin="54,79,292,150" />
+        <Label FontSize="17" Margin="246,26,119,185" Content="{x:Static language:Lang.theme}"/>
+        <RadioButton Name="Svetla"  Style="{DynamicResource RadioDugmeStyle}" GroupName="Tema" FontSize="15" Content="{x:Static language:Lang.light_blue}" Checked="LightBlueChecked" IsChecked="True" Margin="246,80,76,150"/>
+        <RadioButton Name="Siva" Style="{DynamicResource RadioDugmeStyle}" GroupName="Tema" FontSize="15" Content="{x:Static language:Lang.gray}" Checked="grayChecked" Margin="246,113,76,116"/>
+        <RadioButton Name="Tamna" Style="{DynamicResource RadioDugmeStyle}" GroupName="Tema" FontSize="15" Content="{x:Static language:Lang.yellow_white}" Checked="yellowChecked" Margin="246,146,89,84"/>
+        <Button Style="{DynamicResource MyStyleButton}" FontSize="14" Click="ButtonPotvrdi" Margin="326,195,36,25" Content="{x:Static language:Lang.confirm}"/>
+        <Button Style="{DynamicResource MyStyleButton}" FontSize="14" Click="ButtonOdustani" Margin="54,195,308,26" Content="{x:Static language:Lang.cancel}"/>
+        <Label FontSize="17" Margin="54,26,288,185" Content="{x:Static language:Lang.lang}"/>
+    </Grid>
+</Window>

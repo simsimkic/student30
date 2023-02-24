@@ -1,0 +1,53 @@
+﻿<Page x:Class="HCIProjekat.View.OpremaView.OpremaDetails"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.View.OpremaView"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Oprema">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="ID opreme:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Path=Inventory.Id}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Naziv opreme:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Path=Inventory.EquipmentName}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Vrsta opreme:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Path=Inventory.EquipmentType.Name}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Kolicina u magacinu:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Path=Inventory.AmountInStorage}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Kolicina u bolncii:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Path=Inventory.AmountInHospital}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <Grid Grid.Row="5">
+            <Button x:Name="withdraw" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Povratak" Foreground="{StaticResource infoGray}" Click="withdraw_Click"/>
+            <Button Name="editEquipment" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Izmeni" Foreground="{StaticResource svetloPlava}" Click="editEquipment_Click"/>
+        </Grid>
+    </Grid>
+</Page>

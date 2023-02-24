@@ -1,0 +1,66 @@
+﻿<Window x:Class="HealthCare.View.Doctor.Demo.DrugApprovalEnterOnDrugDemo2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Loaded="Window_Loaded"
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthCare.View.Doctor.Demo"
+        mc:Ignorable="d"
+        Title="HealthCare Clinic" 
+        Height="Auto" Width="Auto"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation = "CenterScreen"
+        Icon="../../../View/Doctor/ViewResources/Images/hospitalicon.ico"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 20 30 20">
+            <Button Style="{StaticResource buttonStyleDemo }" VerticalAlignment="Center" Name="btnDrugAprrovalEdit">
+                <DockPanel>
+                    <materialDesign:PackIcon Kind="Edit" VerticalAlignment="Center"/>
+                    <ContentControl Focusable="False">Izmeni</ContentControl>
+                </DockPanel>
+            </Button>
+
+            <Button Style="{StaticResource buttonStyleDemo }" VerticalAlignment="Center" Name="btnDrugAprrovalReject" Margin="40 0 0 0">
+                <DockPanel>
+                    <materialDesign:PackIcon Kind="Close" VerticalAlignment="Center"/>
+                    <ContentControl Focusable="False">Odbij</ContentControl>
+                </DockPanel>
+            </Button>
+
+            <Button Style="{StaticResource buttonStyleDemo }" VerticalAlignment="Center" Name="btnDrugAprrovalSubmit"  Margin="40 0 0 0">
+                <DockPanel>
+                    <materialDesign:PackIcon Kind="Tick" VerticalAlignment="Center"/>
+                    <ContentControl Focusable="False">Odobri</ContentControl>
+                </DockPanel>
+            </Button>
+        </DockPanel>
+
+        <StackPanel Grid.Row="1" Background="LightBlue" Grid.ColumnSpan="2">
+            <Label Content="NAPOMENA: "/>
+            <Label FontSize="18" Name="lblText"/>
+
+            <DockPanel Grid.Row="1" HorizontalAlignment="Right"  Margin="10 10 10 15">
+                <Button Style="{StaticResource buttonStyle }" Width="150" VerticalAlignment="Center" Name="btnPrekiniDemo" Click="btnPrekiniDemo_Click">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="Close" VerticalAlignment="Center"/>
+                        <ContentControl Focusable="False">Prekini DEMO</ContentControl>
+                    </DockPanel>
+                </Button>
+            </DockPanel>
+        </StackPanel>
+    </Grid>
+</Window>

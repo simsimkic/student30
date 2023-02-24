@@ -1,0 +1,70 @@
+﻿<Window x:Class="HealthCareClinic.HCI.InstructionForControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthCareClinic.View"
+        FocusManager.FocusedElement="{Binding ElementName=dpDate}"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="HealthCare Clinic" 
+        Height="Auto" Width="Auto"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation = "CenterScreen"
+        Icon="../../../View/Doctor/ViewResources/Images/hospitalicon.ico"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0" Content="Datum: " Margin="10,15,0,0" Padding="0" />
+        <DatePicker SelectedDateChanged="dpDateFor_SelectedDateChanged" Name="dpDateFor" DisplayDateStart="{Binding DateFrom}" DisplayDateEnd="{Binding DateTo}" Grid.Row="0" Grid.Column="1" Width="200" IsTodayHighlighted="True" Margin="10,12,10,0"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Vreme: " Margin="10,15,0,0" Padding="0" />
+        <ComboBox ItemsSource="{Binding FreeAppointment}" Name="cbTime" Grid.Row="1" Grid.Column="1" Width="200" Margin="10 12 10 0" HorizontalAlignment="Right">
+        <ComboBox.ItemTemplate>
+            <DataTemplate>
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}{0:HH:mm} - {1:HH:mm}">
+                                <Binding Path="StartDateTime" StringFormat="HH-mm"/>
+                                <Binding Path="EndDateTime" StringFormat="HH-mm"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
+            </DataTemplate>
+        </ComboBox.ItemTemplate>
+        </ComboBox>
+    
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Vertical">
+            <Label HorizontalAlignment="Left" Padding="0" Margin="10 10 10 0">Napomena:</Label>
+            <TextBox x:Name="tbNote" Height="100" Margin="10 5 10 0" TextWrapping="Wrap" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" VerticalScrollBarVisibility="Visible"/>
+        </StackPanel>
+
+        <DockPanel Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Right"  Margin="10 10 10 15">
+            <Button Style="{StaticResource buttonStyle }" VerticalAlignment="Center" Name="btnSendControlInstruction" Click="btnSendControlInstruction_Click">
+                <DockPanel>
+                    <materialDesign:PackIcon Kind="Add" VerticalAlignment="Center"/>
+                    <ContentControl Focusable="False">Posalji</ContentControl>
+                </DockPanel>
+            </Button>
+        </DockPanel>
+    </Grid>
+</Window>

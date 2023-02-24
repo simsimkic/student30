@@ -1,0 +1,435 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="aboutThePatient" xml:space="preserve">
+    <value>About the patient</value>
+  </data>
+  <data name="abscenceRequests" xml:space="preserve">
+    <value>Abscence requests</value>
+  </data>
+  <data name="addArticle" xml:space="preserve">
+    <value>Add article</value>
+  </data>
+  <data name="addfaq" xml:space="preserve">
+    <value>Add to FAQ</value>
+  </data>
+  <data name="addPhoto" xml:space="preserve">
+    <value>Add photo</value>
+  </data>
+  <data name="addQuestion" xml:space="preserve">
+    <value>Add question</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="appointment" xml:space="preserve">
+    <value>Appointment</value>
+  </data>
+  <data name="appointmentChooseDate" xml:space="preserve">
+    <value>Are you sure?</value>
+  </data>
+  <data name="appointments" xml:space="preserve">
+    <value>Appointments</value>
+  </data>
+  <data name="approved" xml:space="preserve">
+    <value>Approved</value>
+  </data>
+  <data name="article" xml:space="preserve">
+    <value>Article</value>
+  </data>
+  <data name="back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="biography" xml:space="preserve">
+    <value>Biography</value>
+  </data>
+  <data name="birhdate" xml:space="preserve">
+    <value>Birth date</value>
+  </data>
+  <data name="blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="cancelQuestion" xml:space="preserve">
+    <value>Are you sure you want to cancel?</value>
+  </data>
+  <data name="changePhoto" xml:space="preserve">
+    <value>Change photo</value>
+  </data>
+  <data name="choose" xml:space="preserve">
+    <value>Choose</value>
+  </data>
+  <data name="chooseAppointmentDate" xml:space="preserve">
+    <value>Choose appointment date</value>
+  </data>
+  <data name="chooseDateForDetails" xml:space="preserve">
+    <value>Choose date for details</value>
+  </data>
+  <data name="chooseNewAppointmentDate" xml:space="preserve">
+    <value>Choose new appointment date</value>
+  </data>
+  <data name="chooseNewOperationDate" xml:space="preserve">
+    <value>Choose new surgery date</value>
+  </data>
+  <data name="chooseStartEndDate" xml:space="preserve">
+    <value>Choose start and end date of patient tretmant</value>
+  </data>
+  <data name="chooseSurgeryDate" xml:space="preserve">
+    <value>Choose surgery date</value>
+  </data>
+  <data name="confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="confirmation" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="dateDetails" xml:space="preserve">
+    <value>Day details</value>
+  </data>
+  <data name="dateError" xml:space="preserve">
+    <value>You haven't enter the date!</value>
+  </data>
+  <data name="daysLeft" xml:space="preserve">
+    <value>  Days Left: 10</value>
+  </data>
+  <data name="daysOff" xml:space="preserve">
+    <value>Days off</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="doctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="doctorReply" xml:space="preserve">
+    <value>Doctor replies</value>
+  </data>
+  <data name="duration" xml:space="preserve">
+    <value>Duration</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="editAppointment" xml:space="preserve">
+    <value>Edit appointment</value>
+  </data>
+  <data name="editprofile" xml:space="preserve">
+    <value>Edit profile</value>
+  </data>
+  <data name="en" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>Error!</value>
+  </data>
+  <data name="faq" xml:space="preserve">
+    <value>FAQ</value>
+  </data>
+  <data name="first" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="from" xml:space="preserve">
+    <value>From</value>
+  </data>
+  <data name="gray" xml:space="preserve">
+    <value>Gray</value>
+  </data>
+  <data name="jmbgError" xml:space="preserve">
+    <value>JMBG contains 13 numbers!</value>
+  </data>
+  <data name="lang" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="light-blue" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="logout" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="mainpage" xml:space="preserve">
+    <value>Main page</value>
+  </data>
+  <data name="makeAnAppointment" xml:space="preserve">
+    <value>Make an appointment</value>
+  </data>
+  <data name="makePDF" xml:space="preserve">
+    <value>Make PDF</value>
+  </data>
+  <data name="medicalRecord" xml:space="preserve">
+    <value>Record num</value>
+  </data>
+  <data name="moreInfo" xml:space="preserve">
+    <value>More info</value>
+  </data>
+  <data name="move" xml:space="preserve">
+    <value>Move</value>
+  </data>
+  <data name="moveAppointment" xml:space="preserve">
+    <value>Move appointment</value>
+  </data>
+  <data name="name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="notifications" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="numberError" xml:space="preserve">
+    <value>Number field can contain only numbers!</value>
+  </data>
+  <data name="operation" xml:space="preserve">
+    <value>Surgery</value>
+  </data>
+  <data name="operations" xml:space="preserve">
+    <value>Surgeries</value>
+  </data>
+  <data name="patient" xml:space="preserve">
+    <value>Patinet</value>
+  </data>
+  <data name="patientMoving" xml:space="preserve">
+    <value>Patient moving</value>
+  </data>
+  <data name="patientrequests" xml:space="preserve">
+    <value>Requests</value>
+  </data>
+  <data name="patientTretmant" xml:space="preserve">
+    <value>Patient tretmant</value>
+  </data>
+  <data name="phonenumber" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="place" xml:space="preserve">
+    <value>Place</value>
+  </data>
+  <data name="profil" xml:space="preserve">
+    <value>My profile</value>
+  </data>
+  <data name="question" xml:space="preserve">
+    <value>Question</value>
+  </data>
+  <data name="report" xml:space="preserve">
+    <value>Report</value>
+  </data>
+  <data name="reportDay1" xml:space="preserve">
+    <value>Choose day of the week for </value>
+  </data>
+  <data name="reportDay2" xml:space="preserve">
+    <value>which you need the report</value>
+  </data>
+  <data name="reportError" xml:space="preserve">
+    <value>You haven't selected what you want for your report to be!</value>
+  </data>
+  <data name="reportType" xml:space="preserve">
+    <value>Report type</value>
+  </data>
+  <data name="request" xml:space="preserve">
+    <value>Request</value>
+  </data>
+  <data name="requestType" xml:space="preserve">
+    <value>Request type</value>
+  </data>
+  <data name="response" xml:space="preserve">
+    <value>Response</value>
+  </data>
+  <data name="room" xml:space="preserve">
+    <value>Room</value>
+  </data>
+  <data name="rooms" xml:space="preserve">
+    <value>Rooms</value>
+  </data>
+  <data name="roomType" xml:space="preserve">
+    <value>Room type</value>
+  </data>
+  <data name="second" xml:space="preserve">
+    <value>Second</value>
+  </data>
+  <data name="sector" xml:space="preserve">
+    <value>Sector</value>
+  </data>
+  <data name="sendRequest" xml:space="preserve">
+    <value>Send request</value>
+  </data>
+  <data name="setSurgeryDate" xml:space="preserve">
+    <value>Set surgery date</value>
+  </data>
+  <data name="settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="settingsQuestion" xml:space="preserve">
+    <value>Changing language will require app to restart. Are you sure you want to continue?</value>
+  </data>
+  <data name="shift" xml:space="preserve">
+    <value>Shift</value>
+  </data>
+  <data name="show" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="sickLeave" xml:space="preserve">
+    <value>Sick leave</value>
+  </data>
+  <data name="sr" xml:space="preserve">
+    <value>Serbian</value>
+  </data>
+  <data name="surgeryMoving" xml:space="preserve">
+    <value>Surgery moving</value>
+  </data>
+  <data name="surgeryOverview" xml:space="preserve">
+    <value>Surgery schedule overview</value>
+  </data>
+  <data name="surname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="theme" xml:space="preserve">
+    <value>Theme</value>
+  </data>
+  <data name="time" xml:space="preserve">
+    <value>Operation time</value>
+  </data>
+  <data name="timeError" xml:space="preserve">
+    <value>Time is not valid!</value>
+  </data>
+  <data name="title" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="to" xml:space="preserve">
+    <value>To</value>
+  </data>
+  <data name="type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="vreme" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="yellow-white" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="zipError" xml:space="preserve">
+    <value>ZIP field can contail only numbers!</value>
+  </data>
+</root>

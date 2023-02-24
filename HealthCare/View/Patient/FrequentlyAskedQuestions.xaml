@@ -1,0 +1,24 @@
+﻿<Page x:Class="ResolveView.FrequentlyAskedQuestions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:HealthCare.View.Patient"
+      mc:Ignorable="d" 
+      d:DesignHeight="1200" d:DesignWidth="1280"
+      Title="FrequentlyAskedQuestions">
+
+    <Page.Resources>
+        <ResourceDictionary Source="/View/Patient/ThemeResourceDictionary.xaml"/>
+    </Page.Resources>
+    
+    <StackPanel Margin="150,50,150,50" MinHeight="600">
+        <ItemsControl ItemsSource="{Binding FAQList}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <local:FAQControl Question="{Binding Pitanje}" Answer="{Binding Odgovor}"/>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </StackPanel>
+</Page>

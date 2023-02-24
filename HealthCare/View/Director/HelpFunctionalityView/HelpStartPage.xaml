@@ -1,0 +1,123 @@
+﻿<Page x:Class="HCIProjekat.HelpStartPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:HCIProjekat"
+      mc:Ignorable="d" 
+                      xmlns:toggle="clr-namespace:ToggleSwitch"
+       Height="690" Width="430"
+      Title="Pomoć">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0" VerticalScrollBarVisibility="Hidden">
+            <StackPanel >
+                <TextBlock Text="Pomocu aplikacije Zdravo korporacije (deo za upravnika) dostupne su vam sledece opcije:" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="*" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                    <TextBlock FontSize="20" Margin="10" TextWrapping="Wrap">
+                        <Hyperlink Name="linkZaposleni" Click="linkZaposleni_Click"  Foreground="{StaticResource svetloPlava}">
+                            Manipulacija zaposlenima
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="*" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                    <TextBlock FontSize="20" Margin="10" TextWrapping="Wrap">
+                        <Hyperlink Name="linkLekovi" Click="linkLekovi_Click"  Foreground="{StaticResource svetloPlava}">
+                            Uvid u lekove i raspolaganje sa njima
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="*" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                    <TextBlock FontSize="20" Margin="10" TextWrapping="Wrap">
+                        <Hyperlink Name="linkProstorije" Click="linkProstorije_Click"  Foreground="{StaticResource svetloPlava}">
+                            Uvid u prostorije
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="*" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                    <TextBlock FontSize="20" Margin="10" TextWrapping="Wrap">
+                        <Hyperlink Name="linkOprema" Click="linkOprema_Click"  Foreground="{StaticResource svetloPlava}">
+                            Evidencija, i premestanje opreme u bolnici
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="*" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                    <TextBlock FontSize="20" Margin="10" TextWrapping="Wrap">
+                        <Hyperlink Name="linkRenoviranje" Click="linkRenoviranje_Click"  Foreground="{StaticResource svetloPlava}">
+                            Zakazivanje renoviranja
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="*" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                    <TextBlock FontSize="20" Margin="10" TextWrapping="Wrap">
+                        <Hyperlink Name="linkBlog" Click="linkBlog_Click"  Foreground="{StaticResource svetloPlava}">
+                            Dodavanje clanaka na blog i citanje bloga
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="*" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                    <TextBlock FontSize="20" Margin="10" TextWrapping="Wrap">
+                        <Hyperlink Name="linkObavestenja" Click="linkObavestenja_Click"  Foreground="{StaticResource svetloPlava}">
+                            Prijem obavestenja, i kreiranje obavestenja
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="*" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                    <TextBlock FontSize="20" Margin="10" TextWrapping="Wrap">
+                        <Hyperlink Name="linkIzvestaj" Click="linkIzvestaj_Click"  Foreground="{StaticResource svetloPlava}">
+                            Informacije o zauzetosti lekara
+                        </Hyperlink>
+                    </TextBlock>
+                </StackPanel>
+                <TextBlock Text="Klikom na dugme 'Vodič', prikazanog na slici ispod, aktivira se wizard koji Vas vodi kroz aplikaciju ukoliko je pokrivena funkcionalnost u kojoj se nalazite. On ostaje ukljucen sve dok ga ne iskljucite ponovnim klikom na njega." FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                <Image Source="..\Styles\Images\pomoc.png" Width="420" Margin="0 0 0 30"/>
+
+                <TextBlock Text="Klikom na sledece dugme otvara se dijalog za dodavanje entiteta:" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                <Button Style="{StaticResource AddButtonStyle}" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                <TextBlock Text="Klikom na sledece dugme otvara se dijalog za izmenu entiteta:" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                <Button Style="{StaticResource EditButtonStyle}" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                <TextBlock Text="Klikom na sledece dugme otvara se dijalog za brisanje entiteta:" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                <Button Style="{StaticResource DeleteButtonStyle}" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                <TextBlock Text="Klikom na sledece dugme prikazuju se detaljnije informacije:" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                <Button Style="{StaticResource DetailButtonStyle}" HorizontalAlignment="Left" Margin="20 0 0 0"/>
+                <TextBlock Text="Detaljnije informacije mozete takodje videti ponovnim klikom na prethodno selektovanu stavku." FontSize="20" Margin="10" TextWrapping="Wrap"/>
+
+                <TextBlock Text="Klikom na sledece dugme pristupa se filtriranju podataka:" FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                <Button x:Name="Filter" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0" >
+                    <materialDesign:PackIcon Kind="Filter" Foreground="{StaticResource tamnoPlava}" HorizontalAlignment="Right" Margin="0 0 10 0" Width="50" Height="50"/>
+                </Button>
+
+                <TextBlock Text="Na slici su sa brojevima 1, 2 i 3 oznacene opcije koje su uvek dostupne." FontSize="20" Margin="10" TextWrapping="Wrap"/>
+                <TextBlock Text="* 1 za pristup meniju aplikacije" FontSize="20" Margin="10 0" TextWrapping="Wrap"/>
+                <TextBlock Text="* 2 za pristup obavestenjima" FontSize="20" Margin="10 0" TextWrapping="Wrap"/>
+                <TextBlock Text="* 3 za dodatne opcije i upravljanje nalogom" FontSize="20" Margin="10 0 10 20" TextWrapping="Wrap"/>
+                <Image Source="..\Styles\Images\Objasnjenje.png" Width="420"/>
+
+                <TextBlock Text="Na slici ispod je prikazan kalendar koji se koristi u aplikaciji. Raspon datuma se moze izabrati na dva nacina:" FontSize="20" Margin="10 40 10 10" TextWrapping="Wrap"/>
+                <TextBlock Text="* Klikom na pocetni datum i prevlacenje do krajnjeg bez pustanja misa" FontSize="20" Margin="10 0" TextWrapping="Wrap"/>
+                <TextBlock Text="* Klikom na pocetni datum, otpustanje misa, i zatim klik na krajnji datum" FontSize="20" Margin="10 0" TextWrapping="Wrap"/>
+                <Image Source="..\Styles\Images\kalendar.png" Width="300"/>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

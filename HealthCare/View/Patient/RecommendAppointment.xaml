@@ -1,0 +1,136 @@
+﻿<Page x:Class="ResolveView.RecommendAppointment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:local="clr-namespace:HealthCare.View.Patient"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RecommendAppointment">
+    <Page.Resources>
+        <ResourceDictionary Source="/View/Patient/ThemeResourceDictionary.xaml"/>
+    </Page.Resources>
+
+    <StackPanel Margin="100,50,100,50" MinHeight="1000">
+        <StackPanel Margin="20,0,0,20">
+            <TextBlock FontSize="18" HorizontalAlignment="Left">Preporuka termina vam omogućava da brže izaberete termin koji Vam odgovara</TextBlock>
+            <TextBlock FontSize="18" HorizontalAlignment="Left">Izaberite lekara i vremenski period kada Vam odgovara da zakažete pregled i sistem će vam preporučiti termin koji Vam odgovara.</TextBlock>
+            <TextBlock FontSize="18" HorizontalAlignment="Left" Margin="0,30,0,0">Za početak izaberite lekara kod koga želite da zakažete pregled</TextBlock>
+        </StackPanel>
+        <Grid Margin="20,0,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <TextBox Grid.Column="0" x:Name="DoctorSearch" Text="" VerticalContentAlignment="Center" FontSize="16" Height="30" Width="250" VerticalAlignment="Center"/>
+                <TextBlock Text="Pretraga po imenu" FontSize="16">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=DoctorSearch}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <Button Grid.Column="1" Style="{StaticResource WindowButton}" Click="SearchDoctor_Click" Width="30" Margin="10,0,0,0">
+                <fa:ImageAwesome Style="{StaticResource WindowIcon}" Icon="Search"/>
+            </Button>
+        </Grid>
+
+        <ItemsControl ItemsSource="{Binding SearchCollection}" Margin="0,0,0,400">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Button Style="{StaticResource BasicButton}" Click="PickDoctor_Click" Margin="20">
+                        <DockPanel>
+                            <Image DockPanel.Dock="Top" Source="{Binding Picture, Converter={StaticResource PathConverter}}" Width="220"/>
+                            <StackPanel DockPanel.Dock="Bottom" Background="LightBlue">
+                                <TextBlock FontSize="20" HorizontalAlignment="Center">
+                                    <TextBlock.Text>
+                                        <MultiBinding Converter="{StaticResource StringConcatenate}">
+                                            <Binding Path="Name"/>
+                                            <Binding Path="Surname"/>
+                                        </MultiBinding>
+                                    </TextBlock.Text>
+                                </TextBlock>
+                                <TextBlock FontSize="14" Text="{Binding WorkPlace.Name}" HorizontalAlignment="Center" Margin="0,0,0,5"/>
+                            </StackPanel>
+                        </DockPanel>
+                    </Button>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <StackPanel x:Name="calendar" Visibility="Collapsed">
+            <TextBlock FontSize="24" HorizontalAlignment="Center" Margin="0,100,0,0">Potrebno je da izaberete period u kom želite da zakažete pregled</TextBlock>
+            <TextBlock FontSize="16" FontWeight="Light" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="220,0,220,30">Kako biste selektovali raspon datuma pritisnite levi taster na datumu od koga počinje željeni period a zatim prevucite kursor do krajnjeg datuma</TextBlock>
+            <Viewbox Width="500">
+                <Calendar x:Name="calendarControl" DisplayDateStart="{Binding LowerLimitDateTime}" IsTodayHighlighted="False" SelectionMode="MultipleRange"/>
+            </Viewbox>
+            <Button Style="{StaticResource BasicButton}" Click="Calendar_Click" HorizontalAlignment="Right" FontWeight="DemiBold" FontSize="18" Width="200" Margin="0,0,280,400">Potvrdi izabrani period</Button>
+        </StackPanel>
+
+
+        <StackPanel x:Name="priority" Visibility="Collapsed">
+            <TextBlock FontSize="20" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="130,100,130,30">Kako bi vam predložili termin koji baš Vama odgovara izaberite još i šta Vam je prioritetnije lekar kod koga želite da zakažete pregled ili uneti period</TextBlock>
+            
+            <Grid Height="300" Margin="0,50,0,200">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0">
+                    <TextBlock FontSize="20" HorizontalAlignment="Center" FontWeight="Medium" Text="Lekar">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=ChooseAppointmentButton, Path=IsMouseOver}" Value="true">
+                                        <Setter Property="Foreground" Value="{StaticResource ThemeBrush}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <Button x:Name="ChooseAppointmentButton" Style="{StaticResource WindowButton}" Click="DoctorPriority_Click" Height="120" Width="120" FontSize="20" Margin="20">
+                        <fa:ImageAwesome Style="{StaticResource WindowIcon}" Icon="User"/>
+                        <!--<Image Source="/View/Patient/Resources/chooseAppointment.jpg" Stretch="Fill"/>-->
+                    </Button>
+                </StackPanel>
+                <StackPanel Grid.Column="1">
+                    <TextBlock FontSize="20" HorizontalAlignment="Center" FontWeight="Medium" Text="Period">
+                        <TextBlock.Style>
+                            <Style TargetType="TextBlock">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding ElementName=RecommendAppointmentButton, Path=IsMouseOver}" Value="true">
+                                        <Setter Property="Foreground" Value="{StaticResource ThemeBrush}"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBlock.Style>
+                    </TextBlock>
+                    <Button x:Name="RecommendAppointmentButton" Style="{StaticResource WindowButton}" Click="PeriodPriority_Click" Height="120" Width="120" FontSize="20" Margin="20,20,20,400">
+                        <fa:ImageAwesome Style="{StaticResource WindowIcon}" Icon="ClockOutline"/>
+                        <!--<Image Source="/View/Patient/Resources/recommendAppointment.jpg" Stretch="Fill"/>-->
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <StackPanel x:Name="appointmentV" Visibility="{Binding Appointment, Converter={StaticResource NullVisibilityConverter}}">
+            <TextBlock FontSize="18" Text="{Binding Text}"/>
+            <TextBlock FontSize="18" Text="{Binding DoctorTextBox}"/>
+            <TextBlock FontSize="18" Text="{Binding DateTimeTextBox}"/>
+            <Button Style="{StaticResource BasicButton}" Click="Button_Click" FontSize="20" HorizontalAlignment="Left" Width="200" Margin="0,20,0,200">Potvrđujem</Button>
+        </StackPanel>
+
+    </StackPanel>
+</Page>

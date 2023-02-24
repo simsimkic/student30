@@ -1,0 +1,91 @@
+﻿<Window x:Class="HealthCareClinic.View.DrugApprovalEdit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthCareClinic.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:my="clr-namespace:HCIProjekat.View" xmlns:model="clr-namespace:Model.Drug"
+        Title="HealthCare Clinic" 
+        Height="Auto" Width="Auto"
+        WindowStartupLocation = "CenterScreen"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        Icon="../../../View/Doctor/ViewResources/Images/hospitalicon.ico">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0" Orientation="Vertical">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" HorizontalAlignment="Left" Orientation="Horizontal" >
+                    <Label Name="lblDrugName" Content="Ime leka:"/>
+                    <TextBox  Width="130" Height="20" Name="tbDrugNameValue" Text="Dovicin"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" HorizontalAlignment="Left" Orientation="Horizontal" >
+                    <Label Name="lblDrugID" Content="Sifra:"/>
+                    <TextBox  Width="130" Height="20" Name="tbDrugIDValue" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal" >
+                    <Label Name="lblProducer" Content="Proizvodjac:"/>
+                    <TextBox Margin="0 0 5 0" Width="130" Height="20" Name="tbProducerValue" />
+                </StackPanel>
+
+            </Grid>
+
+
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblDrugFormat" Content="Format:"/>
+                <ComboBox Height="20" Width="130" Name="cbDrugFormatValue" ItemsSource="{Binding Source={my:EnumBindingSourceExtension {x:Type model:Formatdrug}}}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblDrugSize" Content="Kolicina:"/>
+                <TextBox Height="20" Width="100" Name="tbDrugSizeValue" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblDrugDescription" Content="Description:" Width="70"/>
+                <TextBox IsReadOnly="True" Margin="20 5 10 0" Name="tbDrugDescription" TextWrapping="Wrap" HorizontalAlignment="Stretch" Width="500" Height="105"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblDrugDescription1" Content="Alergies:" Width="70" />
+                <TextBox IsReadOnly="True" Margin="20 5 10 0" Name="tbDrugAllergies" TextWrapping="Wrap" HorizontalAlignment="Stretch" Width="500" Height="105" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Label Name="lblDrugSideEffect" Content="Side effect:" Width="70    " />
+                <TextBox Margin="20 5 10 0 " Name="tbDrugSideEffects" TextWrapping="Wrap" HorizontalAlignment="Stretch" Width="500" Height="105"/>
+            </StackPanel>
+
+            <DockPanel Grid.Row="1" HorizontalAlignment="Right"  Margin="10 10 10 15">
+                <Button Style="{StaticResource buttonStyle }" VerticalAlignment="Center" Name="btnEditedDrugApproved" Click="btnEditedDrugApproved_Click">
+                    <DockPanel>
+                        <materialDesign:PackIcon Kind="Add" VerticalAlignment="Center"/>
+                        <ContentControl Focusable="False">Potvrda</ContentControl>
+                    </DockPanel>
+                </Button>
+            </DockPanel>
+
+        </StackPanel>
+    </Grid>
+</Window>

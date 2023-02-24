@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:HCIProjekat.View.Styles">
+
+    <SolidColorBrush x:Key="tamnoPlava" Color="#FF31577E" />
+    <SolidColorBrush x:Key="bela" Color="White" />
+    <SolidColorBrush x:Key="belaTekst" Color="White" />
+    <SolidColorBrush x:Key="svetloPlava" Color="#FF047AA6" />
+    <SolidColorBrush x:Key="deleteRed" Color="#ff75a3" />
+    <SolidColorBrush x:Key="infoGray" Color="#7e8187" />
+    <SolidColorBrush x:Key="editBlue" Color="#0883ff" />
+    <SolidColorBrush x:Key="addGreen" Color="#15cc08" />
+    <SolidColorBrush x:Key="uneditableText" Color="LightGray" />
+    <SolidColorBrush x:Key="rowSelected" Color="LightGray" />
+
+</ResourceDictionary>

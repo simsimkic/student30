@@ -1,0 +1,55 @@
+﻿<Page x:Class="HCIProjekat.ZaposleniView.ZaposleniDetailsSecond"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.ZaposleniView"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+     Height="690" Width="430"
+      Title="Zaposleni">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Specijalizacija:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock  Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <ListBox Grid.Row="1" MaxHeight="400" Margin="20 0" x:Name="specialization" ItemsSource="{Binding Staff.Specialization}" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" FontSize="14" Margin="5 0 0 0"/>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Radno mesto lekara:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Staff.WorkPlace.Name}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Dodeljena prostorija:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Staff.WorkRoom.RoomNumber}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <Grid Grid.Row="4">
+            <Button x:Name="withdraw" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Povratak" Foreground="{StaticResource infoGray}" Click="withdraw_Click"/>
+            <Button Name="editEmployee" HorizontalAlignment="Right"  VerticalAlignment="Bottom" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Izmeni" Foreground="{StaticResource svetloPlava}" Click="editEmployee_Click"/>
+        </Grid>
+    </Grid>
+</Page>

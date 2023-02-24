@@ -1,0 +1,45 @@
+﻿<Window x:Class="HealthCareClinic.View.ArticleDetails"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthCareClinic.View"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="HealthCare Clinic" 
+        Height="Auto" Width="Auto"
+        WindowStartupLocation = "CenterScreen"
+        SizeToContent="WidthAndHeight"
+        ResizeMode="NoResize"
+        Icon="../../../View/Doctor/ViewResources/Images/hospitalicon.ico">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Margin="10 15 0 0" Grid.Column="0" Grid.Row="0" Name="imgArticle" Width="426" Height="240" Stretch="Fill">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="{Binding Path=Image}" Stretch="Fill"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label Margin="15 15 0 0" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Name="lblArticleName" Content="NaslovClankaBindovanTlaLaLaLa" MinWidth="600" HorizontalAlignment="Center"  FontStretch="Medium" FontSize="24" FontWeight="Bold"/>
+
+        <StackPanel Margin="10 30 10 15" Grid.Row="1" Grid.ColumnSpan="2">
+            <TextBox MaxWidth="1026" Name="tbBlogText" IsReadOnly="True" TextWrapping="Wrap" HorizontalAlignment="Stretch" Height="250"/>
+            
+
+        </StackPanel>
+    </Grid>
+</Window>

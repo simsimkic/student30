@@ -1,0 +1,30 @@
+﻿<Window x:Class="Sekretar.Blog.DodajPitanje"
+        ResizeMode="NoResize"
+        Closing="Window_closing"
+        xmlns:language="clr-namespace:Secretary.Properties.Langs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sekretar.Blog"
+        mc:Ignorable="d"
+        Style="{DynamicResource MyStyle}"
+        Title="{x:Static language:Lang.addQuestion}" Height="362.641" Width="401.806">
+    <Grid Height="333" Margin="0,0,0.2,-0.2" VerticalAlignment="Top" HorizontalAlignment="Right" Width="395">
+        <Button Name="btnCancel" IsEnabled="False" IsCancel="true" Margin="395,0,-1,0" RenderTransformOrigin="0.5,0.5" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform ScaleX="-1"/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
+        <Label FontSize="15" Margin="26,20,177.2,282.8" Content="{x:Static language:Lang.question}"></Label>
+        <TextBox Name="NaslovPitanja" Margin="26,55,32.2,226.8"></TextBox>
+        <Label FontSize="15" Margin="26,111,177.2,191.8" Content="{x:Static language:Lang.response}"/>
+        <TextBox Name="TextPitanje" Margin="26,146,32.2,86.8"/>
+        <Button Style="{DynamicResource MyStyleButton}" FontSize="15" Click="ButtonPotvrdi" Margin="281,273,32.2,22.8" Content="{x:Static language:Lang.confirm}"></Button>
+    </Grid>
+</Window>

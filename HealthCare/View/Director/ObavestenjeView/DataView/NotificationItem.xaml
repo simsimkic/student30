@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="HCIProjekat.View.ObavestenjeView.DataView.NotificationItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HCIProjekat.View.ObavestenjeView.DataView"
+             mc:Ignorable="d" 
+             Height="90" Width="430">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid Height="90" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="15"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Margin="10 0" Text="{Binding Path=Title}" Foreground="{StaticResource svetloPlava}" FontSize="20"/>
+        <Grid Grid.Row="1" Height="50" Margin="10 0">
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Text="{Binding Path=Text}" Foreground="{StaticResource infoGray}" FontSize="14"/>
+        </Grid>
+        <Grid Margin="10 0" Grid.Column="0" Grid.Row="2">
+            <TextBlock HorizontalAlignment="Left" Text="{Binding Path=Date, StringFormat=dd.MM.yyyy. HH:mm}" Foreground="{StaticResource infoGray}"/>
+            <TextBlock HorizontalAlignment="Right" FontStyle="Italic" Text="{Binding Path=Author}" Foreground="{StaticResource infoGray}"/>
+        </Grid>
+    </Grid>
+</UserControl>

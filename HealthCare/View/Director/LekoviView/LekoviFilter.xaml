@@ -1,0 +1,113 @@
+﻿<Page x:Class="HCIProjekat.LekoviView.LekoviFilter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.LekoviView"
+                  xmlns:enum="clr-namespace:Model.Drug"
+            xmlns:extension="clr-namespace:HCIProjekat.View"
+      mc:Ignorable="d" 
+       Height="690" Width="430"
+      Title="Filter">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Foreground="{StaticResource svetloPlava}" Text="Naziv leka:" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+        <Grid Grid.Row="1">
+            <TextBox x:Name="drugName" Height="40" Margin="20 0 20 0" VerticalAlignment="Center"/>
+            <TextBlock Text="Unesite naziv leka" FontSize="16">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=drugName}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+        <TextBlock Grid.Row="2" Foreground="{StaticResource svetloPlava}" Text="Proizvodjac:" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+        <Grid Grid.Row="3">
+            <TextBox x:Name="drugManufacturer" Height="40" Margin="20 0 20 0" VerticalAlignment="Center"/>
+            <TextBlock Text="Unesite naziv proizvodjaca" FontSize="16">
+                <TextBlock.Style>
+                    <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Text, ElementName=drugManufacturer}" Value="">
+                                <Setter Property="Visibility" Value="Visible"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+        </Grid>
+        <TextBlock Grid.Row="4" Foreground="{StaticResource svetloPlava}" Text="Kolicina od:" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+        <StackPanel Grid.Row="5">
+            <Grid>
+                <TextBox x:Name="amountFrom" Height="40" Margin="20 0 20 0" VerticalAlignment="Center" PreviewTextInput="drugAmount_PreviewTextInput" DataObject.Pasting="drugAmount_Pasting"/>
+                <TextBlock Text="Unesite donju granicu kolicine leka" FontSize="16">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=amountFrom}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Foreground="Red" Text="*" FontSize="12"  VerticalAlignment="Top" Margin="20 0 0 0"/>
+                <TextBlock  Foreground="{StaticResource infoGray}" Text="Ceo broj veci od nule" FontSize="12"  VerticalAlignment="Top" />
+            </StackPanel>
+        </StackPanel>
+        <TextBlock Grid.Row="6" Foreground="{StaticResource svetloPlava}" Text="Kolicina do:" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+        <StackPanel Grid.Row="7">
+            <Grid>
+                <TextBox x:Name="amountTo" Height="40" Margin="20 0 20 0" VerticalAlignment="Center" PreviewTextInput="drugAmount_PreviewTextInput" DataObject.Pasting="drugAmount_Pasting"/>
+                <TextBlock Text="Unesite gornju granicu kolicine leka" FontSize="16">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource HintTextBlock}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=amountTo}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Foreground="Red" Text="*" FontSize="12"  VerticalAlignment="Top" Margin="20 0 0 0"/>
+                <TextBlock  Foreground="{StaticResource infoGray}" Text="Ceo broj veci od nule" FontSize="12"  VerticalAlignment="Top" />
+            </StackPanel>
+        </StackPanel>
+        <TextBlock Grid.Row="8" Foreground="{StaticResource svetloPlava}" Text="Status leka:" FontSize="16" VerticalAlignment="Center" Margin="20 10"/>
+        <ComboBox Grid.Row="9" x:Name="status" FontSize="16"  Margin="20 5" ItemsSource="{Binding Source={extension:EnumBindingSource {x:Type enum:DrugStatus}}}"/>
+        <Button Grid.Row="10" x:Name="applyFilter" VerticalAlignment="Top" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Primeni" Foreground="{StaticResource svetloPlava}" Click="applyFilter_Click"/>
+        <Grid x:Name="dialog" Grid.RowSpan="11" Visibility="Collapsed"/>
+
+    </Grid>
+</Page>

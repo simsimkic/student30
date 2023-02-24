@@ -1,0 +1,822 @@
+{
+  "$type": "System.Collections.Generic.List`1[[Model.Users.User, HealthCare]], mscorlib",
+  "$values": 
+  [
+    {
+      "$type": "Model.Users.Director, HealthCare",
+      "PictureNumber": 1,
+      "EducationLevel": 6,
+      "Picture": null,
+      "BirthPlace": {
+        "$type": "Model.Users.City, HealthCare",
+        "country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Name": "Beograd",
+        "PostNumber": 11000
+      },
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Beograd",
+          "PostNumber": 11000
+        },
+        "Street": "Boska Buhe",
+        "Number": 23
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "+38121031313",
+        "Email": "dule_srb@hotmail.rs"
+      },
+      "JMBG": "1707998710219",
+      "Name": "Dusan",
+      "UserType": 0,
+      "Surname": "Petrovic",
+      "Password": "dusandusan",
+      "Id": 1001,
+      "Gender": 0,
+      "BirthDate": "1998-07-17T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Doctor, HealthCare",
+      "Specialization": {
+        "$type": "System.Collections.Generic.List`1[[Model.Users.Specialization, HealthCare]], mscorlib",
+        "$values": [
+          {
+            "$type": "Model.Users.Specialization, HealthCare",
+            "Name": "Neurologija"
+          },
+          {
+            "$type": "Model.Users.Specialization, HealthCare",
+            "Name": "Neurohirurgija"
+          },
+          {
+            "$type": "Model.Users.Specialization, HealthCare",
+            "Name": "Urologija"
+          }
+        ]
+      },
+      "WorkPlace": {
+        "$type": "Model.Users.WorkPlace, HealthCare",
+        "Name": "Hirurg"
+      },
+      "WorkRoom": {
+        "$type": "Model.Rooms.Room, HealthCare",
+        "sector": null,
+        "patients": null,
+        "RoomNumber": 1,
+        "Floor": 0,
+        "RoomType": 0,
+        "RoomSector": null,
+        "RoomSize": 0.0
+      },
+      "Biography": "Ja sam dzonii",
+      "PictureNumber": 2,
+      "EducationLevel": 5,
+      "Picture": "../../Resources/UserImages/1002-2.png",
+      "BirthPlace": {
+        "$type": "Model.Users.City, HealthCare",
+        "country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Name": "Kraljevo",
+        "PostNumber": 36000
+      },
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Novi Sad",
+          "PostNumber": 21000
+        },
+        "Street": "Dom C",
+        "Number": 408
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "+381231822112",
+        "Email": "dzoni@healtcare.rs"
+      },
+      "JMBG": "1234567890988",
+      "Name": "Nikola",
+      "UserType": 1,
+      "Surname": "Kolovic",
+      "Password": "",
+      "Id": 1002,
+      "Gender": 0,
+      "BirthDate": "1998-03-04T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Doctor, HealthCare",
+      "Specialization": {
+        "$type": "System.Collections.Generic.List`1[[Model.Users.Specialization, HealthCare]], mscorlib",
+        "$values": []
+      },
+      "WorkPlace": {
+        "$type": "Model.Users.WorkPlace, HealthCare",
+        "Name": "Lekar opste prakse"
+      },
+      "WorkRoom": {
+        "$type": "Model.Rooms.Room, HealthCare",
+        "sector": null,
+        "patients": null,
+        "RoomNumber": 2,
+        "Floor": 0,
+        "RoomType": 0,
+        "RoomSector": null,
+        "RoomSize": 0.0
+      },
+      "Biography": "",
+      "PictureNumber": 1,
+      "EducationLevel": 5,
+      "Picture": "../../Resources/UserImages/1003-1.png",
+      "BirthPlace": {
+        "$type": "Model.Users.City, HealthCare",
+        "country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Name": "Zrenjanin",
+        "PostNumber": 23000
+      },
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Zrenjanin",
+          "PostNumber": 23000
+        },
+        "Street": "Bulevar Veljka Vlahovica",
+        "Number": 59
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "+3819213912121",
+        "Email": "ziki@healtcare.rs"
+      },
+      "JMBG": "0987654321123",
+      "Name": "Stefan",
+      "UserType": 1,
+      "Surname": "Zindovic",
+      "Password": "",
+      "Id": 1003,
+      "Gender": 0,
+      "BirthDate": "1998-12-01T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Secretary, HealthCare",
+      "PictureNumber": 1,
+      "EducationLevel": 6,
+      "Picture": "../../Resources/UserImages/1004-1.png",
+      "BirthPlace": {
+        "$type": "Model.Users.City, HealthCare",
+        "country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Name": "Leskovac",
+        "PostNumber": 16000
+      },
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Novi Sad",
+          "PostNumber": 21000
+        },
+        "Street": "Davida Ratkovica",
+        "Number": 2
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "+381823812812",
+        "Email": "jelena@healtcare.rs"
+      },
+      "JMBG": "2345678901232",
+      "Name": "Jelena",
+      "UserType": 2,
+      "Surname": "Petkovic",
+      "Password": "",
+      "Id": 1004,
+      "Gender": 1,
+      "BirthDate": "1998-01-30T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Doctor, HealthCare",
+      "Specialization": {
+        "$type": "System.Collections.Generic.List`1[[Model.Users.Specialization, HealthCare]], mscorlib",
+        "$values": [
+          {
+            "$type": "Model.Users.Specialization, HealthCare",
+            "Name": "Ginekologija i akušerstvo"
+          }
+        ]
+      },
+      "WorkPlace": {
+        "$type": "Model.Users.WorkPlace, HealthCare",
+        "Name": "Ginekolog"
+      },
+      "WorkRoom": {
+        "$type": "Model.Rooms.Room, HealthCare",
+        "sector": null,
+        "patients": null,
+        "RoomNumber": 5,
+        "Floor": 0,
+        "RoomType": 0,
+        "RoomSector": null,
+        "RoomSize": 0.0
+      },
+      "Biography": "",
+      "PictureNumber": 1,
+      "EducationLevel": 4,
+      "Picture": "../../Resources/UserImages/1005-1.png",
+      "BirthPlace": {
+        "$type": "Model.Users.City, HealthCare",
+        "country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Name": "Novi Sad",
+        "PostNumber": 21000
+      },
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Novi Sad",
+          "PostNumber": 21000
+        },
+        "Street": "Bulevar oslobodjenja",
+        "Number": 1
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "+381693328535",
+        "Email": "stefan@healtcare.rs"
+      },
+      "JMBG": "3456789012321",
+      "Name": "Stefan",
+      "UserType": 1,
+      "Surname": "Colic",
+      "Password": "",
+      "Id": 1005,
+      "Gender": 0,
+      "BirthDate": "1995-11-09T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Doctor, HealthCare",
+      "Specialization": {
+        "$type": "System.Collections.Generic.List`1[[Model.Users.Specialization, HealthCare]], mscorlib",
+        "$values": [
+          {
+            "$type": "Model.Users.Specialization, HealthCare",
+            "Name": "Psihijatrija"
+          }
+        ]
+      },
+      "WorkPlace": {
+        "$type": "Model.Users.WorkPlace, HealthCare",
+        "Name": "Psiholog"
+      },
+      "WorkRoom": {
+        "$type": "Model.Rooms.Room, HealthCare",
+        "sector": null,
+        "patients": null,
+        "RoomNumber": 3,
+        "Floor": 0,
+        "RoomType": 0,
+        "RoomSector": null,
+        "RoomSize": 0.0
+      },
+      "Biography": "",
+      "PictureNumber": 1,
+      "EducationLevel": 4,
+      "Picture": "../../Resources/UserImages/1006-1.png",
+      "BirthPlace": {
+        "$type": "Model.Users.City, HealthCare",
+        "country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Name": "Novi Sad",
+        "PostNumber": 21000
+      },
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Novi Sad",
+          "PostNumber": 21000
+        },
+        "Street": "Bulevar oslobodjenja",
+        "Number": 1
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "+3816213132122",
+        "Email": "danijel@healtcare.rs"
+      },
+      "JMBG": "3456789013122",
+      "Name": "Danijel",
+      "UserType": 1,
+      "Surname": "Radakovic",
+      "Password": "",
+      "Id": 1006,
+      "Gender": 0,
+      "BirthDate": "1996-08-23T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Doctor, HealthCare",
+      "Specialization": {
+        "$type": "System.Collections.Generic.List`1[[Model.Users.Specialization, HealthCare]], mscorlib",
+        "$values": [
+          {
+            "$type": "Model.Users.Specialization, HealthCare",
+            "Name": "Plastična, rekonstruktivna i estetska hirurgija"
+          },
+          {
+            "$type": "Model.Users.Specialization, HealthCare",
+            "Name": "Grudna hirurgija"
+          }
+        ]
+      },
+      "WorkPlace": {
+        "$type": "Model.Users.WorkPlace, HealthCare",
+        "Name": "Hirurg"
+      },
+      "WorkRoom": {
+        "$type": "Model.Rooms.Room, HealthCare",
+        "sector": null,
+        "patients": null,
+        "RoomNumber": 7,
+        "Floor": 0,
+        "RoomType": 0,
+        "RoomSector": null,
+        "RoomSize": 0.0
+      },
+      "Biography": "",
+      "PictureNumber": 1,
+      "EducationLevel": 5,
+      "Picture": "../../Resources/UserImages/1007-1.png",
+      "BirthPlace": {
+        "$type": "Model.Users.City, HealthCare",
+        "country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Name": "Novi Sad",
+        "PostNumber": 21000
+      },
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Novi Sad",
+          "PostNumber": 21000
+        },
+        "Street": "Bulevar oslobodjenja",
+        "Number": 1
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "+3816382193189",
+        "Email": "toma@healtcare.rs"
+      },
+      "JMBG": "3456789012312",
+      "Name": "Tomislav",
+      "UserType": 1,
+      "Surname": "Dobricki",
+      "Password": "",
+      "Id": 1007,
+      "Gender": 0,
+      "BirthDate": "1994-02-13T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Secretary, HealthCare",
+      "PictureNumber": 1,
+      "EducationLevel": 6,
+      "Picture": "../../Resources/UserImages/1008-1.png",
+      "BirthPlace": {
+        "$type": "Model.Users.City, HealthCare",
+        "country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Country": {
+          "$type": "Model.Users.Country, HealthCare",
+          "Name": "Srbija"
+        },
+        "Name": "Novi Sad",
+        "PostNumber": 21000
+      },
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Novi Sad",
+          "PostNumber": 21000
+        },
+        "Street": "Bulevar oslobodjenja",
+        "Number": 1
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "+381653213212",
+        "Email": "luburic@healtcare.rs"
+      },
+      "JMBG": "3456789012311",
+      "Name": "Nikola",
+      "UserType": 2,
+      "Surname": "Luburic",
+      "Password": "",
+      "Id": 1008,
+      "Gender": 0,
+      "BirthDate": "1992-05-12T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Patient, HealthCare",
+      "MedicalRecord": {
+        "$type": "Model.MedicalRecords.MedicalRecord, HealthCare",
+        "Note": null,
+        "Id": 1,
+        "MedicalHistory": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.MedicalHistory, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "RiskFactor": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.RiskFactor, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "FamilyRiskFactor": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.FamilyRiskFactor, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "RiskAllergies": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.RiskAllergies, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "Immunization": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.Immunization, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "Treatment": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.Treatment, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "PatientID": 0
+      },
+      "RhFactor": 0,
+      "BloodType": 0,
+      "Guest": false,
+      "BirthPlace": null,
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Novi Sad",
+          "PostNumber": 20000
+        },
+        "Street": "Bulevar",
+        "Number": 20
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "0601340123",
+        "Email": "ziki@ziki.rs"
+      },
+      "JMBG": "1111111111111",
+      "Name": "Stefika",
+      "UserType": 0,
+      "Surname": "Zindovic",
+      "Password": "123123",
+      "Id": 1009,
+      "Gender": 0,
+      "BirthDate": "1985-06-13T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Patient, HealthCare",
+      "MedicalRecord": {
+        "$type": "Model.MedicalRecords.MedicalRecord, HealthCare",
+        "Note": null,
+        "Id": 2,
+        "MedicalHistory": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.MedicalHistory, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "RiskFactor": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.RiskFactor, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "FamilyRiskFactor": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.FamilyRiskFactor, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "RiskAllergies": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.RiskAllergies, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "Immunization": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.Immunization, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "Treatment": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.Treatment, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "PatientID": 0
+      },
+      "RhFactor": 0,
+      "BloodType": 0,
+      "Guest": false,
+      "BirthPlace": null,
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Novi Sad",
+          "PostNumber": 21000
+        },
+        "Street": "Bulevar",
+        "Number": 12
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "06413123121",
+        "Email": "nidza@nidza.rs"
+      },
+      "JMBG": "2222222222222",
+      "Name": "Nikola",
+      "UserType": 0,
+      "Surname": "Nikolic",
+      "Password": "123123",
+      "Id": 1010,
+      "Gender": 0,
+      "BirthDate": "1966-05-12T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Patient, HealthCare",
+      "MedicalRecord": {
+        "$type": "Model.MedicalRecords.MedicalRecord, HealthCare",
+        "Note": null,
+        "Id": 3,
+        "MedicalHistory": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.MedicalHistory, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "RiskFactor": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.RiskFactor, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "FamilyRiskFactor": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.FamilyRiskFactor, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "RiskAllergies": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.RiskAllergies, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "Immunization": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.Immunization, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "Treatment": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.Treatment, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "PatientID": 0
+      },
+      "RhFactor": 0,
+      "BloodType": 0,
+      "Guest": false,
+      "BirthPlace": null,
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Novi Sad",
+          "PostNumber": 21000
+        },
+        "Street": "Bulevar",
+        "Number": 12
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "06649213912",
+        "Email": "zeki@zeljka.rs"
+      },
+      "JMBG": "3333333333333",
+      "Name": "Zeljka",
+      "UserType": 0,
+      "Surname": "Zeljkovic",
+      "Password": "123123",
+      "Id": 1011,
+      "Gender": 1,
+      "BirthDate": "1955-03-12T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Patient, HealthCare",
+      "MedicalRecord": {
+        "$type": "Model.MedicalRecords.MedicalRecord, HealthCare",
+        "Note": null,
+        "Id": 4,
+        "MedicalHistory": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.MedicalHistory, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "RiskFactor": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.RiskFactor, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "FamilyRiskFactor": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.FamilyRiskFactor, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "RiskAllergies": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.RiskAllergies, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "Immunization": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.Immunization, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "Treatment": {
+          "$type": "System.Collections.Generic.List`1[[Model.MedicalRecords.Treatment, HealthCare]], mscorlib",
+          "$values": []
+        },
+        "PatientID": 0
+      },
+      "RhFactor": 0,
+      "BloodType": 0,
+      "Guest": false,
+      "BirthPlace": null,
+      "Residence": {
+        "$type": "Model.Users.Adress, HealthCare",
+        "City": {
+          "$type": "Model.Users.City, HealthCare",
+          "country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Country": {
+            "$type": "Model.Users.Country, HealthCare",
+            "Name": "Srbija"
+          },
+          "Name": "Novi Sad",
+          "PostNumber": 21000
+        },
+        "Street": "Bulevar",
+        "Number": 12
+      },
+      "Contact": {
+        "$type": "Model.Users.Contact, HealthCare",
+        "Number": "06512312312",
+        "Email": "karolina@karolina.rs"
+      },
+      "JMBG": "4444444444444",
+      "Name": "Karolina",
+      "UserType": 0,
+      "Surname": "Karic",
+      "Password": "123123",
+      "Id": 1012,
+      "Gender": 1,
+      "BirthDate": "1977-01-22T00:00:00"
+    },
+    {
+      "$type": "Model.Users.Patient, HealthCare",
+      "MedicalRecord": null,
+      "RhFactor": 0,
+      "BloodType": 0,
+      "Guest": true,
+      "BirthPlace": null,
+      "Residence": null,
+      "Contact": null,
+      "JMBG": "8727163728123",
+      "Name": "Nikola",
+      "UserType": 0,
+      "Surname": "Peric",
+      "Password": null,
+      "Id": 1013,
+      "Gender": 0,
+      "BirthDate": "0001-01-01T00:00:00"
+    }
+  ]}

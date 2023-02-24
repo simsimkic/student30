@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="HCIProjekat.View.ZaposleniView.DataView.AbsenceHistoryItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HCIProjekat.View.ZaposleniView.DataView"
+             mc:Ignorable="d" 
+             Height="50" d:DesignWidth="430">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Border Width="180" VerticalAlignment="Center" HorizontalAlignment="Left" CornerRadius="0 10 10 0" Background="{StaticResource tamnoPlava}" Grid.Column="0">
+            <StackPanel  VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 0 0 0">
+                <TextBlock Text="Vrsta odsustva: " FontSize="14" Foreground="{StaticResource belaTekst}"/>
+                <TextBlock Text="{Binding Path=AbsenceKind}" FontSize="14" Foreground="{StaticResource belaTekst}"/>
+            </StackPanel>
+        </Border>
+        <StackPanel VerticalAlignment="Center" Grid.Column="1">
+            <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+                <TextBlock Text="Datum odlaska: " FontSize="14"/>
+                <TextBlock Text="{Binding Path=DateStartAbsence, StringFormat=dd.MM.yyyy.}" FontSize="14" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+                <TextBlock Text="Datum povratka: " FontSize="14"/>
+                <TextBlock Text="{Binding Path=DateEndAbsence, StringFormat=dd.MM.yyyy.}" FontSize="14" Foreground="{StaticResource svetloPlava}"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

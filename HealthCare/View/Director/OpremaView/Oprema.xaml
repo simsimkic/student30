@@ -1,0 +1,80 @@
+﻿<Page x:Class="HCIProjekat.OpremaView.Oprema"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.OpremaView"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Oprema">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="ListBoxItem">
+                <EventSetter Event="PreviewMouseDown" Handler="ListBoxItem_PreviewMouseDown" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="ListBoxItem">
+                            <Border Name="ItemBorder" BorderBrush="LightGray" BorderThickness="0 0 0 1" Margin="1" Background="Transparent">
+                                <ContentPresenter />
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter TargetName="ItemBorder" Property="Background" Value="{StaticResource rowSelected}" />
+                                    <Setter Property="ToolTipService.ToolTip" Value="Kliknite jos jednom za prikaz detalja"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
+            <Button x:Name="purchaseEquipment" Visibility="Collapsed" Background="Transparent" BorderBrush="Transparent"  Margin="5" Click="purchaseEquipment_Click">
+                <Border CornerRadius="10" Background="{StaticResource tamnoPlava}">
+                    <StackPanel Orientation="Horizontal" Margin="5">
+                        <TextBlock Text="Nabavka opreme" HorizontalAlignment="Left" FontSize="16" Foreground="{StaticResource belaTekst}"  VerticalAlignment="Center"/>
+                        <materialDesign:PackIcon Kind="Stethoscope" Width="20" Height="20" Margin="5 0 5 0" Foreground="{StaticResource belaTekst}" VerticalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+            </Button>
+            <Button x:Name="movingEquipment" Visibility="Collapsed" ToolTip="Premestanje opreme" Background="Transparent" BorderBrush="Transparent"  Margin="0 5 5 5" Click="movingEquipment_Click">
+                <Border CornerRadius="10" Background="{StaticResource tamnoPlava}">
+                    <TextBlock Margin="5" Text="Premesti" HorizontalAlignment="Left" FontSize="16" Foreground="{StaticResource belaTekst}"  VerticalAlignment="Center"/>
+                </Border>
+            </Button>
+            <Button Width="120" x:Name="amountPerRoom" Visibility="Collapsed" ToolTip="Kolicina opreme po prostorijama" Background="Transparent" BorderBrush="Transparent"  Margin="0 5 5 5" Click="amountPerRoom_Click">
+                <Border CornerRadius="10" Background="{StaticResource tamnoPlava}">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="Kolicina po prostorijama" FontSize="16" Foreground="{StaticResource belaTekst}"  VerticalAlignment="Center"/>
+                </Border>
+            </Button>
+            <Button x:Name="Filter" VerticalAlignment="Center" HorizontalAlignment="Right" Click="Filter_Click" ToolTip="Filter">
+                <materialDesign:PackIcon Kind="Filter" Foreground="{StaticResource tamnoPlava}" HorizontalAlignment="Right" Margin="0 0 10 0" Width="35" Height="35"/>
+            </Button>
+        </DockPanel>
+        <Button Grid.Row="1" VerticalAlignment="Top" Name="disableFilter" Visibility="Collapsed" Content="Ponisti filtere [x]" HorizontalAlignment="Right" Click="disableFilter_Click" Margin="20 0" FontSize="15" Foreground="{StaticResource infoGray}"/>
+
+        <Grid Grid.Row="2">
+            <ListBox  x:Name="listaOpreme" SelectedIndex="0" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding Equipment}" SelectionChanged="listaOpreme_SelectionChanged"/>
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <Button x:Name="detailEquipment" Visibility="Collapsed" Style="{StaticResource DetailButtonStyle}" Click="detailEquipment_Click"/>
+                <Button x:Name="deleteEquipment" Visibility="Collapsed" Style="{StaticResource DeleteButtonStyle}" Click="deleteEquipment_Click"/>
+                <Button x:Name="editEquipment" Visibility="Collapsed" Style="{StaticResource EditButtonStyle}" Click="editEquipment_Click"/>
+                <Button Name="addEquipment" Style="{StaticResource AddButtonStyle}" Click="addEquipment_Click"/>
+            </StackPanel>
+            <Grid x:Name="dialog" Grid.RowSpan="2" Visibility="Collapsed"/>
+        </Grid>
+    </Grid>
+</Page>

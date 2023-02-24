@@ -1,0 +1,75 @@
+﻿<Page x:Class="HCIProjekat.View.LekoviView.LekoviDetailsOdbijeni"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:conv="clr-namespace:HCIProjekat.View.LekoviView.DataView"
+      xmlns:local="clr-namespace:HCIProjekat.View.LekoviView"
+      mc:Ignorable="d" 
+     Height="690" Width="430"
+      Title="Lekovi">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <conv:BooleanStatusConverterColor x:Key="ConvColor"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="85"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="ID leka:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Path=Drug.Id}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Naziv leka:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Path=Drug.DrugName}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Proizvodjac:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Path=Drug.Manufacturer}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Kolicina supstance:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="{Binding Path=Drug.DrugQuantity}" Margin="10 0 0 0" Foreground="{StaticResource svetloPlava}" FontSize="20"/>
+                <TextBlock Text=" mg" Foreground="{StaticResource svetloPlava}" FontSize="20"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Format leka:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Path=Drug.Format}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Kolicina na stanju:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Path=Drug.Amount}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Status:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Path=Drug.Status}" Margin="10 0 0 0" FontSize="20" Foreground="{Binding Path=Drug.Status, Converter={StaticResource ConvColor}}"/>
+        </StackPanel>
+        <TextBlock Grid.Row="7" Text="Razlog odbijanja:" FontSize="20" Margin="20 0" Foreground="{StaticResource infoGray}"/>
+        <TextBox Grid.Row="8" x:Name="namena" Text="{Binding Path=Drug.RejectReason}" VerticalContentAlignment="Top" FontSize="14" TextWrapping="Wrap" Margin="20 20" IsReadOnly="True"/>
+
+        <Grid Grid.Row="9">
+            <Button x:Name="withdraw" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="120" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Povratak" Foreground="{StaticResource infoGray}" Click="withdraw_Click"/>
+            <Button x:Name="change" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="120" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Izmeni" Foreground="{StaticResource svetloPlava}" Click="change_Click"/>
+            <Button x:Name="obrisi" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="120" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Obrisi" Foreground="DarkRed" Click="obrisi_Click"/>
+        </Grid>
+        <Grid x:Name="dialog" Grid.RowSpan="12" Visibility="Collapsed"/>
+    </Grid>
+</Page>

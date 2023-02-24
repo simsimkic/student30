@@ -1,0 +1,55 @@
+﻿<Page x:Class="HCIProjekat.View.ConfirmationDialogsView.ChangeWhoApprovesDrugDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HCIProjekat.View.ConfirmationDialogsView"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             Height="750" Width="430"
+            >
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="{Binding Source={StaticResource rowSelected},Path=Color}" Opacity="0.4"/>
+        </Grid.Background>
+        <Border Margin="30 260" CornerRadius="15" Background="White">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="100"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+                <Border Background="{StaticResource svetloPlava}" Grid.Row="0" CornerRadius="15 15 0 0">
+                    <TextBlock x:Name="titleWindow" Text="Zamena lekara za odobravajne lekova" FontSize="15" Foreground="{StaticResource belaTekst}" Margin="10 5"/>
+                </Border>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Foreground="{StaticResource svetloPlava}" Text="Odobravanje lekova izbrisanog lekara preuzima:" FontSize="15"  VerticalAlignment="Center" Margin="20 10"/>
+                    <ComboBox Grid.Row="1" x:Name="doctor" ItemsSource="{Binding Staff}" Margin="20 5">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Id}"/>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Button x:Name="odustanak" HorizontalAlignment="Left" Visibility="Collapsed" VerticalAlignment="Bottom" Margin="20 0" Style="{StaticResource CustomButtonSmallForDialog}" Tag="Denied" Content="Odustani" Foreground="{StaticResource infoGray}"/>
+                    <Button x:Name="potvrda" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="20 0" Style="{StaticResource CustomButtonSmallForDialog}" Tag="TickCircleOutline" Content="Potvrdi" Foreground="{StaticResource svetloPlava}" Click="potvrda_Click"/>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

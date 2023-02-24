@@ -1,0 +1,121 @@
+﻿<Page x:Class="HCIProjekat.ZaposleniView.ZaposleniDetailsFirst"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HCIProjekat.ZaposleniView"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      mc:Ignorable="d" 
+      Height="690" Width="430"
+      Title="Zaposleni">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="34"/>
+            <RowDefinition Height="85"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Image Grid.Column="0" Source="{Binding Staff.Picture}" Height="150" Width="150" HorizontalAlignment="Left" Margin="20 0" Stretch="UniformToFill"/>
+            <StackPanel Grid.Column="1">
+                <TextBlock Text="{Binding User.WorkPlace}" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="20 20" FontSize="30" Foreground="{StaticResource svetloPlava}"/>
+                <StackPanel Grid.Row="1" Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+                    <TextBlock Text="ID zaposlenog:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+                    <TextBlock Text="{Binding Staff.Id}" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+        
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Ime zaposlenog:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Staff.Name}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Prezime zaposlenog:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Staff.Surname}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Pol:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Staff.Gender}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="JMBG:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Staff.JMBG}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Datum rodjenja:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Staff.BirthDate, StringFormat=dd.MM.yyyy.}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <TextBlock Grid.Row="6" Text="Mesto rodjenja:" FontSize="20" Margin="20 0" Foreground="{StaticResource infoGray}" />
+        <TextBlock Grid.Row="7" Margin="20 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}" TextWrapping="Wrap">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0}, {1}, {2}">
+                    <Binding Path="Staff.BirthPlace.Name"/>
+                    <Binding Path="Staff.BirthPlace.PostNumber"/>
+                    <Binding Path="Staff.BirthPlace.Country.Name"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <TextBlock Grid.Row="8" Text="Prebivaliste:" FontSize="20" Margin="20 0" Foreground="{StaticResource infoGray}" />
+        <TextBlock Grid.Row="9" Margin="20 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}" TextWrapping="Wrap">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0}, {1}">
+                    <Binding Path="Staff.Residence.Street"/>
+                    <Binding Path="Staff.Residence.Number"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <TextBlock Grid.Row="10" Margin="20 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}" TextWrapping="Wrap">
+            <TextBlock.Text>
+                <MultiBinding StringFormat="{}{0}, {1}, {2}">
+                    <Binding Path="Staff.Residence.City.Name"/>
+                    <Binding Path="Staff.Residence.City.PostNumber"/>
+                    <Binding Path="Staff.Residence.City.Country.Name"/>
+                </MultiBinding>
+            </TextBlock.Text>
+        </TextBlock>
+        <StackPanel Grid.Row="11" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Stepen strucne spreme:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Staff.EducationLevel}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="12" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="Kontakt telefon:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Staff.Contact.Number}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="13" Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20 0">
+            <TextBlock Text="E-mail adresa:" FontSize="20" Foreground="{StaticResource infoGray}"/>
+            <TextBlock Text="{Binding Staff.Contact.Email}" Margin="10 0 0 0" FontSize="20" Foreground="{StaticResource svetloPlava}"/>
+        </StackPanel>
+
+        <Grid Grid.Row="14">
+            <Button x:Name="withdraw" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="120" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Povratak" Foreground="{StaticResource infoGray}" Click="withdraw_Click"/>
+            <Button x:Name="change" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="120" Margin="20" Style="{StaticResource CustomButtonSmall}" Content="Izmeni" Foreground="{StaticResource svetloPlava}" Click="change_Click"/>
+            <Button x:Name="viewNext" Style="{StaticResource CustomButtonNextStep}"  HorizontalAlignment="Right" Click="viewNext_Click"/>
+        </Grid>
+    </Grid>
+</Page>

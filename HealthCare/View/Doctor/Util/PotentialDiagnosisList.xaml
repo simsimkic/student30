@@ -1,0 +1,28 @@
+﻿<Window x:Class="HealthCareClinic.View.PotentialDiagnosisList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthCareClinic.View"
+        mc:Ignorable="d"
+        Title="HealthCare Clinic" 
+        Height="Auto" Width="Auto"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation = "CenterScreen"
+        Icon="../../../View/Doctor/ViewResources/Images/hospitalicon.ico"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <StackPanel FocusManager.FocusedElement="{Binding ElementName=listBoxSymptoms}" Grid.Row="0" Grid.Column="1" Margin="10 15 10 15">
+            <TextBlock TextAlignment="Center" Background="DodgerBlue" Text="Moguce dijagnoze" Grid.Row="0" Width="120"/>
+
+            <ListBox MouseDoubleClick="listBoxSymptoms_MouseDoubleClick" ItemsSource="{Binding Diagnosis}" DisplayMemberPath="Name" Name="listBoxSymptoms" PreviewKeyDown="listBoxSymptoms_PreviewKeyDown" HorizontalContentAlignment="Center" Grid.Row="0" Grid.Column="1" Width="120" Height="100"/>
+        </StackPanel>
+    </Grid>
+</Window>

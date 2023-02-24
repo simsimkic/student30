@@ -1,0 +1,49 @@
+﻿<Page x:Class="HCIProjekat.ZaposleniView.ZaposleniOdsustva"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:local="clr-namespace:HCIProjekat.ZaposleniView"
+      mc:Ignorable="d" 
+       Height="690" Width="430"
+      Title="Zaposleni">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../Styles/Merge.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="{StaticResource bela}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Height="60" Grid.Row="0" x:Name="dugmici" Margin="10 0 0 0" Visibility="Collapsed"  Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Button x:Name="kalendar" VerticalAlignment="Center" Background="Transparent" BorderBrush="Transparent" ToolTip="Istorija odsustva" Click="kalendar_Click">
+                    <materialDesign:PackIcon Kind="Calendar" Width="50" Height="50" Foreground="{StaticResource tamnoPlava}"/>
+                </Button>
+            <Button Background="Transparent" x:Name="confirmAbsence" Click="confirmAbsence_Click" ToolTip="Odobravanje zahteva" VerticalAlignment="Center" BorderBrush="Transparent">
+                    <materialDesign:PackIcon Kind="Check" Width="50" Height="50" Foreground="{StaticResource addGreen}"/>
+                </Button>
+                <Button x:Name="rejectAbsence" VerticalAlignment="Center" Background="Transparent" BorderBrush="Transparent" ToolTip="Odbijanje zahteva" Click="rejectAbsence_Click">
+                    <materialDesign:PackIcon Kind="Close" Width="50" Height="50" Foreground="{StaticResource deleteRed}"/>
+                </Button>
+            </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <ListBox Grid.Row="0" x:Name="listaOdsustava" SelectedIndex="0" VirtualizingPanel.ScrollUnit="Pixel" ScrollViewer.VerticalScrollBarVisibility="Hidden" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ItemsSource="{Binding Absences}" SelectionChanged="listaOdsustava_SelectionChanged"/>
+                <TextBox Grid.Row="1" x:Name="details" Text= "{Binding ElementName=listaOdsustava, Path=SelectedItem.Reason}" VerticalContentAlignment="Top" Height="110" TextWrapping="Wrap" Margin="20 10" IsReadOnly="True"/>
+            </Grid>
+        </Grid>
+        <Grid x:Name="dialog" Grid.RowSpan="2" Visibility="Collapsed"/>
+    </Grid>
+    
+</Page>

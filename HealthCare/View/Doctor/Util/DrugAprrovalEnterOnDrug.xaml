@@ -1,0 +1,46 @@
+﻿<Window x:Class="HealthCareClinic.View.DrugAprrovalEnterOnDrug"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:HealthCareClinic.View"
+        mc:Ignorable="d"
+        Title="HealthCare Clinic" 
+        Height="Auto" Width="Auto"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation = "CenterScreen"
+        Icon="../../../View/Doctor/ViewResources/Images/hospitalicon.ico"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <DockPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30 20 30 20">
+            <Button Style="{StaticResource buttonStyle }" VerticalAlignment="Center" Name="btnDrugAprrovalEdit" Click="btnDrugAprrovalEdit_Click">
+                <DockPanel>
+                    <materialDesign:PackIcon Kind="Edit" VerticalAlignment="Center"/>
+                    <ContentControl Focusable="False">Izmeni</ContentControl>
+                </DockPanel>
+            </Button>
+
+            <Button Style="{StaticResource buttonStyle }" VerticalAlignment="Center" Name="btnDrugAprrovalReject" Click="btnDrugAprrovalReject_Click" Margin="40 0 0 0">
+                <DockPanel>
+                    <materialDesign:PackIcon Kind="Close" VerticalAlignment="Center"/>
+                    <ContentControl Focusable="False">Odbij</ContentControl>
+                </DockPanel>
+            </Button>
+
+            <Button Style="{StaticResource buttonStyle }" VerticalAlignment="Center" Name="btnDrugAprrovalSubmit" Click="btnDrugAprrovalSubmit_Click" Margin="40 0 0 0">
+                <DockPanel>
+                    <materialDesign:PackIcon Kind="Tick" VerticalAlignment="Center"/>
+                    <ContentControl Focusable="False">Odobri</ContentControl>
+                </DockPanel>
+            </Button>
+        </DockPanel>
+    </Grid>
+</Window>

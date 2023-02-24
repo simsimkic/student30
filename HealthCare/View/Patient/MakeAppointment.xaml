@@ -1,0 +1,62 @@
+﻿<Page x:Class="HealthCare.View.Patient.MakeAppointment"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HealthCare.View.Patient"
+      xmlns:fa="http://schemas.fontawesome.io/icons/"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MakeAppointment">
+    
+    <Page.Resources>
+        <ResourceDictionary Source="/View/Patient/ThemeResourceDictionary.xaml"/>
+    </Page.Resources>
+    
+    <Grid Height="600" Margin="250,50,250,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="16" TextWrapping="Wrap" Margin="0,0,0,80">Nudimo Vam mogućnost da sami izaberete na koji način želite da zakažete termin.Možete iskoristiti funkciju preporuka termina i sistem će vam predložite termin za uneti period ili sami možete preuzeti proces zakazivanja pregleda u svoje ruke.</TextBlock>
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <TextBlock FontSize="20" HorizontalAlignment="Center" FontWeight="Medium" Text="Izaberite termin">
+                <TextBlock.Style>
+                    <Style TargetType="TextBlock">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ElementName=ChooseAppointmentButton, Path=IsMouseOver}" Value="true">
+                                <Setter Property="Foreground" Value="{StaticResource ThemeBrush}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBlock.Style>
+            </TextBlock>
+            <Button x:Name="ChooseAppointmentButton" Style="{StaticResource WindowButton}" Click="ChooseAppointment_Click" Height="150" Width="150" FontSize="20" Margin="20">
+                <fa:ImageAwesome Style="{StaticResource WindowIcon}" Icon="Pencil"/>
+                <!--<Image Source="/View/Patient/Resources/chooseAppointment.jpg" Stretch="Fill"/>-->
+            </Button>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock FontSize="20" HorizontalAlignment="Center" FontWeight="Medium" Text="Preporuči mi termin">
+                    <TextBlock.Style>
+                        <Style TargetType="TextBlock">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=RecommendAppointmentButton, Path=IsMouseOver}" Value="true">
+                                    <Setter Property="Foreground" Value="{StaticResource ThemeBrush}"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+            </TextBlock>
+            <Button x:Name="RecommendAppointmentButton" Style="{StaticResource WindowButton}" Click="RecommendAppointment_Click" Height="150" Width="150" FontSize="20" Margin="20">
+                <fa:ImageAwesome Style="{StaticResource WindowIcon}" Icon="Gear"/>
+                <!--<Image Source="/View/Patient/Resources/recommendAppointment.jpg" Stretch="Fill"/>-->
+            </Button>
+        </StackPanel>
+        
+    </Grid>
+</Page>

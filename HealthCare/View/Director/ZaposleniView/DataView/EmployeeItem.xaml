@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="HCIProjekat.View.ZaposleniView.DataView.EmployeeItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:HCIProjekat.View.ZaposleniView.DataView"
+             mc:Ignorable="d" 
+             Height="72" d:DesignWidth="430">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../Styles/Colors.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="72"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Ellipse Height="72" Width="72">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="{Binding Path=Picture}" Stretch="UniformToFill"/>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Grid Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="24"/>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0"  Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+                    <TextBlock Text="Ime: " FontSize="16"/>
+                    <TextBlock Text="{Binding Path=EmployeeName}" Foreground="{StaticResource svetloPlava}" FontSize="16"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+                    <TextBlock Text="Prezime: " FontSize="16"/>
+                    <TextBlock Text="{Binding Path=Surname}" Foreground="{StaticResource svetloPlava}" FontSize="16"/>
+                </StackPanel>
+                <Border Grid.Row="2" CornerRadius="10 10 0 0" Background="{StaticResource tamnoPlava}">
+                    <StackPanel  Margin="10 0 0 0" VerticalAlignment="Center" HorizontalAlignment="Left" Orientation="Horizontal">
+                        <TextBlock Text="ID zaposlenog: " FontSize="16" Foreground="{StaticResource belaTekst}"/>
+                        <TextBlock Text="{Binding Path=Id}" Foreground="{StaticResource belaTekst}" FontSize="16"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </Grid>
+        <StackPanel Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock Text="Radno mesto: " FontSize="16"/>
+            <TextBlock Text="{Binding Path=WorkPlace}" Foreground="{StaticResource svetloPlava}" FontSize="16"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

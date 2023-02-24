@@ -1,0 +1,97 @@
+﻿<Window x:Class="HealthCareClinic.HCI.PatientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:HealthCareClinic.View"
+        xmlns:model="clr-namespace:HealthCare.View.Doctor.Util"
+        mc:Ignorable="d"
+        PreviewKeyDown="Window_PreviewKeyDown"
+        Title="HealthCare Clinic" 
+        Height="Auto" Width="Auto"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation = "CenterScreen"
+        Icon="../../../View/Doctor/ViewResources/Images/hospitalicon.ico"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <GroupBox Margin="10 6 0 15" Grid.Column="0" Header="Pretrazi pacijente">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" Content="Ime:" Margin="10,15,0,0" Padding="0" />
+                <TextBox Name="tbPatientName" Grid.Row="0" Grid.Column="1" Width="200" Margin="10 12 10 0"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Content="Prezime:" Margin="10,15,0,0" Padding="0" />
+                <TextBox Name="tbPatientSurname" Grid.Row="1" Grid.Column="1" Width="200" Margin="10 12 10 0"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Content="Broj kartona:" Margin="10,15,0,0" Padding="0" />
+                <TextBox Name="tbPatientCardID" Grid.Row="2" Grid.Column="1" Width="200" Margin="10 12 10 0"/>
+
+                <Label Grid.Row="3" Grid.Column="0" Content="JBMG:" Margin="10,15,0,0" Padding="0" />
+                <TextBox Name="tbPatientJBMG" Grid.Row="3" Grid.Column="1" Width="200" Margin="10 12 10 0"/>
+
+                <!--<Label Grid.Row="4" Grid.Column="0" Content="Dijagnoza:" Margin="10,15,0,0" Padding="0" />
+                <ComboBox IsTextSearchEnabled="True" Name="cbPatientSearchDiagnosis" Grid.Row="4" Grid.Column="1" Width="200" Margin="10 12 10 0">
+                    <ComboBoxItem>Item 1</ComboBoxItem>
+                    <ComboBoxItem>Item 2</ComboBoxItem>
+                    <ComboBoxItem>Item 3</ComboBoxItem>
+                </ComboBox>-->
+
+                <DockPanel VerticalAlignment="Bottom" Grid.Row="6" Grid.ColumnSpan="2" HorizontalAlignment="Right" Margin="0 0 10 15" >
+                    <Button Style="{StaticResource buttonStyle }" VerticalAlignment="Center" Name="btnSearchPatient" Click="btnSearchPatient_Click">
+                        <DockPanel>
+                            <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center"/>
+                            <ContentControl Focusable="False">Pretrazi</ContentControl>
+                        </DockPanel>
+                    </Button>
+                </DockPanel>
+
+            </Grid>
+        </GroupBox>
+
+        <DataGrid PreviewKeyDown="tablePatientSearch_PreviewKeyDown" ItemsSource="{Binding Patients}" Margin="10 15 10 15" Width="Auto" Height="500" CanUserReorderColumns="False" BorderThickness="1" Grid.Column="1" x:Name="tablePatientSearch" IsReadOnly="True" 
+                      SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Stretch" CanUserResizeColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="JMBG" Binding="{Binding JMBG}" Width="150"/>
+                <DataGridTextColumn Header="BZK" Binding="{Binding MedicalRecord.Id}" Width="80"/>
+                <DataGridTextColumn Header="Ime" Binding="{Binding Name}" Width="100"/>
+                <DataGridTextColumn Header="Prezime" Binding="{Binding Surname}" Width="100"/>
+                <DataGridTextColumn Header="Godina rodjenja" Binding="{Binding BirthDate.Year}" Width="100"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="btnMedicalRecord">Otvori karton</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Window>

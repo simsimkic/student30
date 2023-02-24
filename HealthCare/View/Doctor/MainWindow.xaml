@@ -1,0 +1,85 @@
+﻿<Window x:Class="HealthCareClinic.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:HealthCareClinic"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        Title="HealthCare Clinic"
+        WindowState="Maximized"
+        MinHeight="600" MinWidth="920"
+        Icon="../../View/Doctor/ViewResources/Images/hospitalicon.ico"
+        ResizeMode="NoResize"
+        Closing="Window_Closing">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        
+        <!-- MainWindows delimo na 2 dela, toolbar i ostatak-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        
+    
+        <!-- Grid koji se odnosi na toolbar-->
+        <Grid Grid.Row="0">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="240"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <materialDesign:PackIcon HorizontalAlignment="Center" Foreground="DodgerBlue" VerticalAlignment="Center" Kind="stethoscope" Height="40" Width="40"/>
+            </StackPanel>
+
+
+
+            <Label Name="lblDoctorName" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="22" MouseDown="lblDoctorName_MouseDown"></Label>
+
+
+            <StackPanel HorizontalAlignment="Right" Grid.Column="2" Orientation="Horizontal">
+
+                <Button Style="{StaticResource buttonToolBarStyle}" ToolTip="Software Rating" FocusVisualStyle="{DynamicResource MyFocusVisualToolBar}" Name="btnSoftwareRating" Click="btnSoftwareRating_Click">
+                    <materialDesign:PackIcon Kind="Bulb" Height="40" Width="40" Foreground="DodgerBlue"/>
+                </Button>
+
+                <Button Style="{StaticResource buttonToolBarStyle}" ToolTip="Feedback" FocusVisualStyle="{DynamicResource MyFocusVisualToolBar}" Name="btnToolBarFeedBack" Click="btnToolBarFeedBack_Click">
+                    <materialDesign:PackIcon Kind="RssFeed" Height="40" Width="40" Foreground="DodgerBlue"/>
+                </Button>
+
+                <Button Style="{StaticResource buttonToolBarStyle}" Click="Button_Click" ToolTip="Demo" FocusVisualStyle="{DynamicResource MyFocusVisualToolBar}">
+                    <materialDesign:PackIcon Kind="Computer" Height="40" Width="40" Foreground="DodgerBlue"/>
+                </Button>
+
+                <Button Style="{StaticResource buttonToolBarStyle}" Name="btnToolBarNotification" Click="btnToolBarNotification_Click"  ToolTip="Notification" FocusVisualStyle="{DynamicResource MyFocusVisualToolBar}">
+                    <materialDesign:PackIcon Kind="bell" Height="40" Width="40" Foreground="DodgerBlue" />
+                </Button>
+
+                <Button Style="{StaticResource buttonToolBarStyle}" Name="btnToolBarMyProfile" Click="btnToolBarMyProfile_Click"  ToolTip="My profile" FocusVisualStyle="{DynamicResource MyFocusVisualToolBar}">
+                    <materialDesign:PackIcon Kind="account" Height="40" Width="40" Foreground="DodgerBlue"/>
+                </Button>
+
+                <Button Style="{StaticResource buttonToolBarStyle}" Name="btnToolBarExit" Click="btnToolBarExit_Click" ToolTip="Exit" FocusVisualStyle="{DynamicResource MyFocusVisualToolBar}">
+                    <materialDesign:PackIcon Kind="ExitToApp" Height="40" Width="40" Foreground="DodgerBlue"/>
+                </Button>
+
+            </StackPanel>
+
+            <Separator VerticalAlignment="Top" Grid.ColumnSpan="9" Margin="0"/>
+            <Separator VerticalAlignment="Bottom" Grid.ColumnSpan="9" Margin="0"/>
+
+        </Grid>
+
+        <Frame Grid.Row="1" NavigationUIVisibility="Hidden" HorizontalAlignment="Stretch" x:Name="MainFrame" Focusable="False" />
+
+    </Grid>
+</Window>

@@ -1,0 +1,57 @@
+﻿<Window x:Class="HealthCareClinic.View.TreatmentReview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:local="clr-namespace:HealthCareClinic.View"
+        mc:Ignorable="d"
+        Title="HealthCare Clinic" 
+        Height="Auto" Width="Auto"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation = "CenterScreen"
+        Icon="../../../View/Doctor/ViewResources/Images/hospitalicon.ico"
+        ResizeMode="NoResize">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../../../View/Doctor/ViewResources/Styles/Buttons.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Label Content="Datum od: " Margin="10,10,0,0" Padding="0" />
+            <DatePicker Width="250" IsTodayHighlighted="True" Name="dPickerReviewTreatmentsFrom" Margin="10,7,10,0" SelectedDate="{Binding dateFrom, Mode=TwoWay,StringFormat='dd MMM yyyy' }"
+        DisplayDateEnd="{Binding dateTo}"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Label Content="Datum do: " Margin="10,15,0,0" Padding="0" />
+            <DatePicker Width="250" IsTodayHighlighted="True" Name="dPickerReviewTreatmentsTo" Margin="10,12,10,0" SelectedDate="{Binding dateTo, Mode=TwoWay,StringFormat='dd MMM yyyy'}"
+        DisplayDateStart="{Binding dateFrom}"
+        DisplayDateEnd="{x:Static sys:DateTime.Now}"/>
+        </StackPanel>
+
+        <DockPanel Grid.Row="3" HorizontalAlignment="Right" Margin="10 15 10 15">
+
+
+            <Button Style="{StaticResource buttonStyle }" Width="150" VerticalAlignment="Center" Margin="0 0 0 0" Name="btnPrintReviewTreatments" Click="btnPrintReviewTreatments_Click">
+                <DockPanel>
+                    <materialDesign:PackIcon Kind="Printer" VerticalAlignment="Center"/>
+                    <ContentControl Focusable="False">Pretvori u PDF</ContentControl>
+                </DockPanel>
+            </Button>
+        </DockPanel>
+    </Grid>
+</Window>
